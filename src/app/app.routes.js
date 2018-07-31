@@ -1,6 +1,9 @@
-'use strict';
+import wizardCtrl  from './wizard/scripts/wizard.controller';
+import landingController  from './wizard/scripts/landing.controller';
+import baseController  from './wizard/scripts/base.controller';
 
-angular.module('app').config(function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
+
+export default function routes($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
 
     $stateProvider
 
@@ -8,7 +11,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard', {
             url: '/wizard',
             templateUrl: 'app/wizard/wizard.html',
-            controller: 'wizardCtrl',
+            controller: wizardCtrl,
             resolve: {
                 session: function (platform, $state) {
                     return platform.getSession().then(function (session) {
@@ -26,7 +29,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.landing', {
             url: '/landing?lang',            //<< find way to remove these
             templateUrl: 'app/wizard/landing.html',
-            controller: 'landingController',
+            controller: landingController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(0, $stateParams.lang);
@@ -36,7 +39,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         // .state('wizard.making_sense', {
         //     url: '/making_sense?lang',
         //     templateUrl: 'app/wizard/collaborators.html',
-        //     controller: 'baseController',
+        //     controller: baseController,
         //     resolve: {
         //         scopePayload: function (SegueService, $stateParams) {
         //             return SegueService.prep(1, $stateParams.lang);
@@ -79,7 +82,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.basic', {
             url: '/whats_in_the_box?lang',
             templateUrl: 'app/wizard/basic.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(10, $stateParams.lang);
@@ -109,7 +112,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.confirm_parts', {
             url: '/confirm_parts?lang',
             templateUrl: 'app/wizard/confirm.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(13, $stateParams.lang);
@@ -119,7 +122,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.kitbuild1', { // TODO - fix this output
             url: '/kitbuild_1?lang',
             templateUrl: 'app/wizard/kitbuild1.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(14, $stateParams.lang);
@@ -129,7 +132,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.kitbuild2', {
             url: '/kitbuild_2?lang',
             templateUrl: 'app/wizard/kitbuild2.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(15, $stateParams.lang);
@@ -139,7 +142,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.kitbuild3', {
             url: '/kitbuild_3?lang',
             templateUrl: 'app/wizard/kitbuild3.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(16, $stateParams.lang);
@@ -149,7 +152,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.kitbuild4', {
             url: '/kitbuild_4?lang',
             templateUrl: 'app/wizard/kitbuild4.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(17, $stateParams.lang);
@@ -159,7 +162,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.case1', {
             url: '/case_1?lang',
             templateUrl: 'app/wizard/casing.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(18, $stateParams.lang);
@@ -169,7 +172,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.case2', {
             url: '/case_2?lang',
             templateUrl: 'app/wizard/casing.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(19, $stateParams.lang);
@@ -180,7 +183,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.confirm_build', {
             url: '/confirm_build?lang',
             templateUrl: 'app/wizard/confirm.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(20, $stateParams.lang);
@@ -193,7 +196,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.accesspoint_pre', {
             url: '/accesspoint_pre?lang',
             templateUrl: 'app/wizard/basic.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(30, $stateParams.lang);
@@ -236,7 +239,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.sensorName_prep', {
             url: '/sensorName_prep?lang',
             templateUrl: 'app/wizard/basic.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(40, $stateParams.lang);
@@ -313,7 +316,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.confirm_location', {
             url: '/confirm_location?lang',
             templateUrl: 'app/wizard/confirm.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(53, $stateParams.lang);
@@ -357,7 +360,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('wizard.confirm_handshake', {
             url: '/confirm_handshake?lang',
             templateUrl: 'app/wizard/confirm.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(24, $stateParams.lang);
@@ -419,7 +422,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         .state('unavailable', {
             url: '/unavailable?lang',
             templateUrl: 'app/wizard/unavailable.html',
-            controller: 'baseController',
+            controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(0, $stateParams.lang);
@@ -436,4 +439,6 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
         enabled: true,
         requireBase: false
     }).hashPrefix('!');
-});
+}
+
+routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];

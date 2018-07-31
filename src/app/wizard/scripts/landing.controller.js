@@ -1,7 +1,4 @@
-/**
- * Created by Lucian on 4/1/17.
- */
-angular.module('app').controller('landingController', function($scope, scopePayload, AnimationService, $rootScope, $stateParams, $state) {
+export default function landingController($scope, scopePayload, AnimationService, $rootScope, $stateParams, $state) {
     $rootScope.lang = $stateParams.lang;
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
@@ -37,4 +34,6 @@ angular.module('app').controller('landingController', function($scope, scopePayl
     $scope.languageChangeSegue = function(val){
         $state.go('wizard.making_sense', {lang: buttonTargets[val]});
     }
-});
+}
+
+landingController.$inject = ['$scope', 'scopePayload', 'AnimationService', '$rootScope', '$stateParams', '$state'];

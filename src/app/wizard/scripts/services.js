@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('app').service('SegueService', function () {
+export default function SegueService () {
 
     var pageContent = [
         [
@@ -1493,10 +1491,4 @@ angular.module('app').service('SegueService', function () {
         }
     }
 
-}).controller('baseController', function ($scope, $stateParams, scopePayload, AnimationService, $rootScope) {
-    $rootScope.lang = $stateParams.lang;
-    $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
-    $scope.$parent.segueControl = 'ready';
-    $scope.$parent.smartCitizenToggle = '';
-});
+}

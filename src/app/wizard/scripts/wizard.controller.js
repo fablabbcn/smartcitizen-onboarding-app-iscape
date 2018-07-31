@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').controller('wizardCtrl', function($scope, $location, $sce, $window, $timeout, SegueService, $rootScope, AnimationService, session, platform, Restangular, $state, $stateParams, hotkeys) {
+export default function wizardCtrl($scope, $location, $sce, $window, $timeout, SegueService, $rootScope, AnimationService, session, platform, Restangular, $state, $stateParams, hotkeys) {
 
     $scope.spinnerControl = 'hide';
 
@@ -144,7 +144,7 @@ angular.module('app').controller('wizardCtrl', function($scope, $location, $sce,
                 $scope.payload.segueButton = $scope.payload.segueButtonError;
             }, 250);
             return;
-        } 
+        }
         else if ($scope.payload.template == 'handshake') {
             return; // We currently don't use errors for handshake
         }
@@ -270,4 +270,6 @@ angular.module('app').controller('wizardCtrl', function($scope, $location, $sce,
         }
     });
 
-});
+}
+
+wizardCtrl.$inject = ['$scope', '$location', '$sce', '$window', '$timeout', 'SegueService', '$rootScope', 'AnimationService', 'session', 'platform', 'Restangular', '$state', '$stateParams', 'hotkeys'];

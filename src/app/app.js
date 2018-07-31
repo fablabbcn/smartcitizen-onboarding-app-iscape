@@ -16,8 +16,10 @@ import 'angular-socket-io';
 // config
 import routes from './app.routes';
 
-// Factories
+// Factories & Services
+import SegueService from './wizard/scripts/services';
 import geolocation from './wizard/scripts/geolocation.factory';
+import { platformNotify, platform } from './wizard/scripts/platform';
 
 
 export const App = angular.module('app', [
@@ -33,4 +35,7 @@ export const App = angular.module('app', [
   'cfp.hotkeys'
 ])
 .config(routes)
+.service('SegueService', SegueService)
+.factory('platformNotify', platformNotify)
+.factory('platform', platform)
 .factory('$geolocation', geolocation);

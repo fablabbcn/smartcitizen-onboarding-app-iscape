@@ -1,12 +1,14 @@
-'use strict';
+import io from 'socket.io-client';
 
-angular.module('app').factory('platformNotify', function (socketFactory) {
+export function platformNotify(socketFactory) {
     return socketFactory({
         ioSocket: io.connect('wss://ws.smartcitizen.me')
     });
-});
+}
 
-angular.module('app').factory('platform', function($rootScope, SegueService, Restangular, platformNotify) {
+platformNotify.$inject = ['socketFactory'];
+
+export function platform($rootScope, SegueService, Restangular, platformNotify) {
 
     var sessionHeaders = {};
 
@@ -104,4 +106,6 @@ angular.module('app').factory('platform', function($rootScope, SegueService, Res
         getTags: getTags
     };
 
-});
+}
+
+platform.$$inject = ['$rootScope', 'SegueService', 'Restangular', 'platformNotify'];
