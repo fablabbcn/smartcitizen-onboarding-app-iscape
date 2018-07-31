@@ -10,7 +10,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
     /** -- INTRO -- **/
         .state('wizard', {
             url: '/wizard',
-            templateUrl: 'app/wizard/wizard.html',
+            template: require('./wizard/wizard.html'),
             controller: wizardCtrl,
             resolve: {
                 session: function (platform, $state) {
@@ -28,7 +28,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.landing', {
             url: '/landing?lang',            //<< find way to remove these
-            templateUrl: 'app/wizard/landing.html',
+            template: require('./wizard/landing.html'),
             controller: landingController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -38,7 +38,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         // .state('wizard.making_sense', {
         //     url: '/making_sense?lang',
-        //     templateUrl: 'app/wizard/collaborators.html',
+        //     template: require('./wizard/collaborators.html'),
         //     controller: baseController,
         //     resolve: {
         //         scopePayload: function (SegueService, $stateParams) {
@@ -48,7 +48,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         // })
         .state('wizard.smart_citizen', {
             url: '/smart_citizen?lang',
-            templateUrl: 'app/wizard/collaborators.html',
+            template: require('./wizard/collaborators.html'),
             controller: 'smartCitizenController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -58,7 +58,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.smart_citizen2', {
             url: '/smart_citizen_brief?lang',
-            templateUrl: 'app/wizard/basic2.html',
+            template: require('./wizard/basic2.html'),
             controller: 'smartCitizenController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -68,7 +68,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.basic2', {
             url: '/smart_citizen_brief2?lang',
-            templateUrl: 'app/wizard/basic2.html',
+            template: require('./wizard/basic2.html'),
             controller: 'smartCitizenController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -81,7 +81,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- WHATS IN THE BOX -- **/
         .state('wizard.basic', {
             url: '/whats_in_the_box?lang',
-            templateUrl: 'app/wizard/basic.html',
+            template: require('./wizard/basic.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -91,7 +91,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.selectparts', {
             url: '/kit_parts?lang',
-            templateUrl: 'app/wizard/selectparts.html',
+            template: require('./wizard/selectparts.html'),
             controller: 'stateCtlr',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -101,7 +101,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.selectparts2', {
             url: '/case?lang',
-            templateUrl: 'app/wizard/selectparts2.html',
+            template: require('./wizard/selectparts2.html'),
             controller: 'stateCtlr',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -111,7 +111,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.confirm_parts', {
             url: '/confirm_parts?lang',
-            templateUrl: 'app/wizard/confirm.html',
+            template: require('./wizard/confirm.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -121,7 +121,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.kitbuild1', { // TODO - fix this output
             url: '/kitbuild_1?lang',
-            templateUrl: 'app/wizard/kitbuild1.html',
+            template: require('./wizard/kitbuild1.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -131,7 +131,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.kitbuild2', {
             url: '/kitbuild_2?lang',
-            templateUrl: 'app/wizard/kitbuild2.html',
+            template: require('./wizard/kitbuild2.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -141,7 +141,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.kitbuild3', {
             url: '/kitbuild_3?lang',
-            templateUrl: 'app/wizard/kitbuild3.html',
+            template: require('./wizard/kitbuild3.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -151,7 +151,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.kitbuild4', {
             url: '/kitbuild_4?lang',
-            templateUrl: 'app/wizard/kitbuild4.html',
+            template: require('./wizard/kitbuild4.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -161,7 +161,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.case1', {
             url: '/case_1?lang',
-            templateUrl: 'app/wizard/casing.html',
+            template: require('./wizard/casing.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -171,7 +171,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.case2', {
             url: '/case_2?lang',
-            templateUrl: 'app/wizard/casing.html',
+            template: require('./wizard/casing.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -182,7 +182,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 
         .state('wizard.confirm_build', {
             url: '/confirm_build?lang',
-            templateUrl: 'app/wizard/confirm.html',
+            template: require('./wizard/confirm.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -195,7 +195,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- WIFI HANDSHAKE-- **/
         .state('wizard.accesspoint_pre', {
             url: '/accesspoint_pre?lang',
-            templateUrl: 'app/wizard/basic.html',
+            template: require('./wizard/basic.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -205,7 +205,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.accesspoint_1', {
             url: '/accesspoint_1?lang',
-            templateUrl: 'app/wizard/prompted_entry.html',
+            template: require('./wizard/prompted_entry.html'),
             controller: 'accesspointController_base',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -215,7 +215,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.accesspoint_2', {
             url: '/accesspoint_2?lang',
-            templateUrl: 'app/wizard/prompted_entry2_image.html',
+            template: require('./wizard/prompted_entry2_image.html'),
             controller: 'accesspointController_base',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -225,7 +225,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.ap_final', {
             url: '/ap_final?lang',
-            templateUrl: 'app/wizard/prompted_entry.html',
+            template: require('./wizard/prompted_entry.html'),
             controller: 'accesspointController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -238,7 +238,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- NAME -- **/
         .state('wizard.sensorName_prep', {
             url: '/sensorName_prep?lang',
-            templateUrl: 'app/wizard/basic.html',
+            template: require('./wizard/basic.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -248,7 +248,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.sensorName', {
             url: '/sensorName?lang',
-            templateUrl: 'app/wizard/sensorName.html',
+            template: require('./wizard/sensorName.html'),
             controller: 'nameCtlr',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -261,7 +261,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- LOCATION -- **/
         .state('wizard.location_prep', {
             url: '/location_prep?lang',
-            templateUrl: 'app/wizard/location_prep.html',
+            template: require('./wizard/location_prep.html'),
             controller: 'locationController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -279,7 +279,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.location_map', {
             url: '/location_map?lang',
-            templateUrl: 'app/wizard/location_map.html',
+            template: require('./wizard/location_map.html'),
             controller: 'locationController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -297,7 +297,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
          .state('wizard.location_tags', {
          url: '/location_tags?lang',
-         templateUrl: 'app/wizard/location_tags.html',
+         template: require('./wizard/location_tags.html'),
          controller: 'locationController',
              resolve: {
                  scopePayload: function (SegueService, $stateParams) {
@@ -315,7 +315,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
          })
         .state('wizard.confirm_location', {
             url: '/confirm_location?lang',
-            templateUrl: 'app/wizard/confirm.html',
+            template: require('./wizard/confirm.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -329,7 +329,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- HANDSHAKE -- **/
         .state('wizard.wifi_enter', {
             url: '/wifi_enter?lang',
-            templateUrl: 'app/wizard/wifi_enter.html',
+            template: require('./wizard/wifi_enter.html'),
             controller: 'handshakeController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -339,7 +339,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.handshake', {
             url: '/handshake?lang',
-            templateUrl: 'app/wizard/handshake.html',
+            template: require('./wizard/handshake.html'),
             controller: 'handshakeController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -349,7 +349,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.wifi_check', {
             url: '/wifi_check?lang',
-            templateUrl: 'app/wizard/wifi_check.html',
+            template: require('./wizard/wifi_check.html'),
             controller: 'handshakeController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -359,7 +359,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.confirm_handshake', {
             url: '/confirm_handshake?lang',
-            templateUrl: 'app/wizard/confirm.html',
+            template: require('./wizard/confirm.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -371,7 +371,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** --  ACCOUNT -- **/
         .state('wizard.account1', {
             url: '/email?lang',
-            templateUrl: 'app/wizard/account1.html',
+            template: require('./wizard/account1.html'),
             controller: 'accountController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -381,7 +381,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.login', {
             url: '/login?lang',
-            templateUrl: 'app/wizard/login.html',
+            template: require('./wizard/login.html'),
             controller: 'accountController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -391,7 +391,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.account2', {
             url: '/username?lang',
-            templateUrl: 'app/wizard/make_account1.html',
+            template: require('./wizard/make_account1.html'),
             controller: 'accountController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -401,7 +401,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.account3', {
             url: '/password?lang',
-            templateUrl: 'app/wizard/make_account2.html',
+            template: require('./wizard/make_account2.html'),
             controller: 'accountController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -411,7 +411,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.final', {
             url: '/final?lang',
-            templateUrl: 'app/wizard/final.html',
+            template: require('./wizard/final.html'),
             controller: 'finalController',
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -421,7 +421,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('unavailable', {
             url: '/unavailable?lang',
-            templateUrl: 'app/wizard/unavailable.html',
+            template: require('./wizard/unavailable.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {

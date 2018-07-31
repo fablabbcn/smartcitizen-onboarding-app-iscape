@@ -19,7 +19,7 @@ export default function SegueService () {
                 "part": 2,
                 "template": "collaborators",
                 "url": "smart_citizen",
-                "companyLogo": "app/images/scklogo.png",
+                "companyLogo": "assets/images/scklogo.png",
                 "h2": "Smart Citizen is a movement for civic participation in a modern world",
                 "h4": "Smart Citizen creates open tools for citizens to be better informed about the world around them.",
                 "segueButton": "CONTINUE"
@@ -29,7 +29,7 @@ export default function SegueService () {
                 "part": 3,
                 "template": "basic2",
                 "url": "smart_citizen_brief",
-                "image": "app/images/sck.png",
+                "image": "assets/images/sck.png",
                 "h2": "The Smart Citizen Kit",
                 "h4": "This sensor is a Smart Citizen Kit for environmental sensing. It measures sound, air quality, humidity, and lots of other things",
                 "segueButton": "CONTINUE"
@@ -39,7 +39,7 @@ export default function SegueService () {
                 "part": 4,
                 "template": "basic2",
                 "url": "smart_citizen_brief2",
-                "image": "app/images/web.png",
+                "image": "assets/images/web.png",
                 "h2": "smartcitizen.me",
                 "h4": "The kit sends all the measurements to the Smart Citizen website. It's open and free for all to see, question and play with...",
                 "segueButton": "LET'S DO THIS"
@@ -158,7 +158,7 @@ export default function SegueService () {
                 "url": "case_1",
                 "h2": "Next, we'll place it all in the casing",
                 "text": "Make sure you place it with the battery cable towards the bottom of the casing",
-                "image": "app/images/sck_placeall.png",
+                "image": "assets/images/sck_placeall.png",
                 "segueButton": "CONTINUE"
             },
             {
@@ -168,7 +168,7 @@ export default function SegueService () {
                 "url": "case_2",
                 "h2": "... and to finish, seal the cover",
                 "text": "Place the transparent plastic on the front of the case and fix it in place with the two white plugs.",
-                "image": "app/images/sck_sealthecover.png",
+                "image": "assets/images/sck_sealthecover.png",
                 "segueButton": "CONTINUE"
             },
             {
@@ -448,7 +448,7 @@ export default function SegueService () {
                 "part": 2,
                 "template": "collaborators",
                 "url": "smart_citizen",
-                "companyLogo": "app/images/scklogo.png",
+                "companyLogo": "assets/images/scklogo.png",
                 "h2": "Smart Citizen es un movimiento para la participación ciudadana utilizando las últimas tecnologías.",
                 "h4": "Smart Citizen crea herramientas abiertas para que los ciudadanos están mejor informado acerca del mundo a su alrededor.",
                 "segueButton": "CONTINÚA"
@@ -458,7 +458,7 @@ export default function SegueService () {
                 "part": 3,
                 "template": "basic2",
                 "url": "smart_citizen_brief",
-                "image": "app/images/sck_glow.png",
+                "image": "assets/images/sck_glow.png",
                 "h2": "El Kit de Smart Citizen",
                 "h4": "Este sensor es el Kit de Smart Citizen para mediciones medioambientales. Mide sonido, calidad del aire, humedad y muchas cosas más",
                 "segueButton": "CONTINÚA"
@@ -468,7 +468,7 @@ export default function SegueService () {
                 "part": 4,
                 "template": "basic2",
                 "url": "smart_citizen_brief2",
-                "image": "app/images/web.png",
+                "image": "assets/images/web.png",
                 "h2": "smartcitizen.me",
                 "h4": "El Kit envía todos los datos a la web de Smart Citizen. Es abierta y gratuita para todos, para ver, preguntar y jugar con ella...",
                 "segueButton": "VAMOS"
@@ -587,7 +587,7 @@ export default function SegueService () {
                 "url": "case_1",
                 "h2": "Después, colocalo todo dentro de la carcasa",
                 "text": "Asegurate de colocar el Kit con el cable de la batería hacia la parte inferior de la carcasa",
-                "image": "app/images/sck_placeall.png",
+                "image": "assets/images/sck_placeall.png",
                 "segueButton": "CONTINÚA"
             },
             {
@@ -597,7 +597,7 @@ export default function SegueService () {
                 "url": "case_2",
                 "h2": "... y para terminar, cierra la tapa",
                 "text": "Coloca el plástico transparente en la parte delantera de la caja y fijalo en su lugar con las dos fijaciones blancas",
-                "image": "app/images/sck_sealthecover.png",
+                "image": "assets/images/sck_sealthecover.png",
                 "segueButton": "CONTINÚA"
             },
             {
@@ -872,7 +872,7 @@ export default function SegueService () {
                 "part": 2,
                 "template": "collaborators",
                 "url": "smart_citizen",
-                "companyLogo": "app/images/scklogo.png",
+                "companyLogo": "assets/images/scklogo.png",
                 "h2": "Smart Citizen és un moviment per la participació ciutadana utilitzant les últimes tecnologies.",
                 "h4": "Smart Citizen crea eines obertes per ajudar els ciutadans a entendre millor el seu entorn.",
                 "segueButton": "CONTINUA"
@@ -882,7 +882,7 @@ export default function SegueService () {
                 "part": 3,
                 "template": "basic2",
                 "url": "smart_citizen_brief",
-                "image": "app/images/sck.png",
+                "image": "assets/images/sck.png",
                 "h2": "Smart Citizen Kit",
                 "h4": "Aquest sensors és un Smart Citizen Kit. Mesura soroll, qualitat de l'aire, humitat, i moltes coses més.",
                 "segueButton": "CONTINUA"
@@ -892,7 +892,7 @@ export default function SegueService () {
                 "part": 4,
                 "template": "basic2",
                 "url": "smart_citizen_brief2",
-                "image": "app/images/web.png",
+                "image": "assets/images/web.png",
                 "h2": "smartcitizen.me",
                 "h4": "El sensor envia totes les mesures a la web d'Smart Citizen. És lliure i oberta perquè tothom pugui veure i qüestionar les dades...",
                 "segueButton": "FEM-HO"
@@ -1011,7 +1011,7 @@ export default function SegueService () {
                 "url": "case_1",
                 "h2": "A continuació posa-ho tot dins la carcassa",
                 "text": "Assegura't de col·locar el Kit amb el cable de la bateria cap a la part inferior de la carcassa",
-                "image": "app/images/sck_placeall.png",
+                "image": "assets/images/sck_placeall.png",
                 "segueButton": "CONTINUA"
             },
             {
@@ -1021,7 +1021,7 @@ export default function SegueService () {
                 "url": "case_2",
                 "h2": "... i per acabar, posa la tapa.",
                 "text": "Col·loca el plàstic transparent damunt la caixa i fixa'l al seu lloc amb les dues fixacions blanques",
-                "image": "app/images/sck_sealthecover.png",
+                "image": "assets/images/sck_sealthecover.png",
                 "segueButton": "CONTINUA"
             },
             {
@@ -1284,7 +1284,7 @@ export default function SegueService () {
             {
                 title: "Uh oh",
                 body: "It seems like you are missing parts of the kit. If that’s so, let’s notify the team and they’ll get back to you as soon as possible",
-                image: "app/images/alert.svg",
+                image: "assets/images/alert.svg",
                 button: "Notify the team!",
                 action: "email"
             }

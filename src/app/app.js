@@ -19,6 +19,7 @@ import routes from './app.routes';
 // Factories & Services
 import SegueService from './wizard/scripts/services';
 import geolocation from './wizard/scripts/geolocation.factory';
+import AnimationService from './wizard/scripts/animation.factory';
 import { platformNotify, platform } from './wizard/scripts/platform';
 
 
@@ -36,6 +37,7 @@ export const App = angular.module('app', [
 ])
 .config(routes)
 .service('SegueService', SegueService)
+.factory('AnimationService', AnimationService)
 .factory('platformNotify', platformNotify)
 .factory('platform', platform)
 .factory('$geolocation', geolocation);

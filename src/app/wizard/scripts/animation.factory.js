@@ -1,8 +1,4 @@
-'use strict';
-/**
- * Created by Lucian on 9/7/16.
- */
-angular.module('app').factory('AnimationService', function($rootScope, SegueService){
+export default function AnimationService($rootScope, SegueService) {
 
 
     /** Animations **/
@@ -83,4 +79,6 @@ angular.module('app').factory('AnimationService', function($rootScope, SegueServ
         leaving: leaving,
         reInit: reInit
     };
-});
+}
+
+AnimationService.$inject = ['$rootScope', 'SegueService'];
