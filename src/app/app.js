@@ -1,15 +1,36 @@
-'use strict';
-// Declare app level module which depends on views, and components
-angular.module('app', [
-        'ui.router',
-        'ngMaterial',
-        'ngMessages',
-        'ngAnimate',
-        'ngGeolocation',
-        'uiGmapgoogle-maps',
-        'google.places',
-        'restangular',
-        'btford.socket-io',
-        'angularLazyImg',
-        'cfp.hotkeys'
-    ]);
+import angular from 'angular';
+
+// external modules
+import 'lodash';
+import 'angular-simple-logger';
+import uiRouter from 'angular-ui-router';
+import 'angular-google-maps';
+import googlePlaces from 'angular-google-places-autocomplete';
+import ngMaterial from 'angular-material';
+import ngAnimate from 'angular-animate';
+import ngMessages from 'angular-messages';
+import restangular from 'restangular';
+import hotkeys from 'angular-hotkeys';
+import 'angular-socket-io';
+
+// config
+import routes from './app.routes';
+
+// Factories
+import geolocation from './wizard/scripts/geolocation.factory';
+
+
+export const App = angular.module('app', [
+  ngMaterial,
+  ngMessages,
+  ngAnimate,
+  uiRouter,
+  restangular,
+  'uiGmapgoogle-maps',
+  googlePlaces,
+  'btford.socket-io',
+  // 'angularLazyImg', TODO check this one: https://github.com/afklm/ng-lazy-image
+  'cfp.hotkeys'
+])
+.config(routes)
+.factory('$geolocation', geolocation);
