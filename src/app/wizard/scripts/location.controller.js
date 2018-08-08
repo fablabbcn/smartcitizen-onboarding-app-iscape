@@ -1,12 +1,4 @@
-'use strict';
-
-angular.module('app').config(function (uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyDgSvUrtmsNLkoaK1mYlyU3eVbByMlE4w4',
-        v: '3.20',
-        libraries: 'weather,geometry,visualization'
-    });
-}).controller('locationController', function ($scope, uiGmapIsReady, $geolocation, scopePayload, AnimationService, tags) {
+export default function locationController($scope, uiGmapIsReady, $geolocation, scopePayload, AnimationService, tags) {
 
     // Tags must be on this list https://api.smartcitizen.me/v0/tags
 
@@ -142,5 +134,7 @@ angular.module('app').config(function (uiGmapGoogleMapApiProvider) {
         $scope.$parent.segueControl = 'blocked';
     }
 
-});
+};
+
+locationController.$inject = ['$scope', 'uiGmapIsReady', '$geolocation', 'scopePayload', 'AnimationService', 'tags'];
 //# TODO - when no location given use region from IP to center map

@@ -1,0 +1,49 @@
+[{
+  "state": "intro",
+  "controller": "baseController",
+  "subStates": [{
+    "state": "collaborators",
+    "template": "collaborators",
+    "controller": "smartcitizenController",
+    "url": "smart_citizen",
+    "payload": {
+      "companyLogo": "assets/images/scklogo.png",
+      "h2": "Smart Citizen is a movement for civic participation in a modern world",
+      "h4": "Smart Citizen creates open tools for citizens to be better informed about the world around them.",
+      "segueButton": "CONTINUE"
+    }
+  },
+  {
+    "template": "basic2",
+    "url": "smart_citizen_brief",
+    "payload": {
+      "image": "assets/images/sck.png",
+      "h2": "The Smart Citizen Kit",
+      "h4": "This sensor is a Smart Citizen Kit for environmental sensing. It measures sound, air quality, humidity, and lots of other things",
+      "segueButton": "CONTINUE"
+    }
+  },
+  {
+    "index": 3,
+    "part": 4,
+    "template": "basic2",
+    "url": "smart_citizen_brief2",
+    "payload": {
+      "image": "assets/images/web.png",
+      "h2": "smartcitizen.me",
+      "h4": "The kit sends all the measurements to the Smart Citizen website. It's open and free for all to see, question and play with...",
+      "segueButton": "LET'S DO THIS"
+    }
+  },
+  {
+    "index": 10,
+    "part": 1,
+    "template": "basic",
+    "url": "whats_in_the_box",
+    "payload": {
+      "h1": "LET'S SET UP THE KIT",
+      "h4": "There's a few pieces we need to set up the Kit, let's check we have them all",
+      "segueButton": "I'M READY"
+    }
+  }]
+}]

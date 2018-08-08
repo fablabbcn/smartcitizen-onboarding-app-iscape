@@ -14,6 +14,7 @@ import hotkeys from 'angular-hotkeys';
 import 'angular-socket-io';
 
 // config
+import config from './app.config';
 import routes from './app.routes';
 
 // Factories & Services
@@ -35,6 +36,7 @@ export const App = angular.module('app', [
   // 'angularLazyImg', TODO check this one: https://github.com/afklm/ng-lazy-image
   'cfp.hotkeys'
 ])
+.config(config)
 .config(routes)
 .service('SegueService', SegueService)
 .factory('AnimationService', AnimationService)

@@ -1,8 +1,4 @@
-'use strict';
-/**
- * Created by Lucian on 10/12/16.
- */
-angular.module('app').controller('accountController', function ($scope, scopePayload, AnimationService, platform, $timeout, $rootScope, $stateParams, session) {
+export default function accountController($scope, scopePayload, AnimationService, platform, $timeout, $rootScope, $stateParams, session) {
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -201,4 +197,6 @@ angular.module('app').controller('accountController', function ($scope, scopePay
 
     checkSegue();
 
-});
+}
+
+accountController.$inject = ['$scope', 'scopePayload', 'AnimationService', 'platform', '$timeout', '$rootScope', '$stateParams', 'session'];

@@ -1,4 +1,4 @@
-export default function baseController($scope, $stateParams, scopePayload, AnimationService, $rootScope) {
+export function baseController($scope, $stateParams, scopePayload, AnimationService, $rootScope) {
     $rootScope.lang = $stateParams.lang;
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);

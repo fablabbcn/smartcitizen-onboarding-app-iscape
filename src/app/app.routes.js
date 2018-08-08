@@ -1,6 +1,14 @@
 import wizardCtrl  from './wizard/scripts/wizard.controller';
 import landingController  from './wizard/scripts/landing.controller';
-import baseController  from './wizard/scripts/base.controller';
+import * as base  from './wizard/base';
+import wizardStates from './wizard/wizard.json';
+import stateCtlr  from './wizard/scripts/states.controller';
+import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
+import nameCtlr  from './wizard/scripts/name.controller';
+import locationController  from './wizard/scripts/location.controller';
+import handshakeController  from './wizard/scripts/handshake.controller';
+import accountController  from './wizard/scripts/account.controller';
+import finalController  from './wizard/scripts/final.controller';
 
 
 export default function routes($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
@@ -36,63 +44,71 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
                 }
             }
         })
-        // .state('wizard.making_sense', {
-        //     url: '/making_sense?lang',
-        //     template: require('./wizard/collaborators.html'),
-        //     controller: baseController,
+
+// JSON //
+
+        wizardStates.forEach((state) => {
+            if (!state.subStates || state.isState) {
+              $stateProvider.state(...getStateArgs(state));
+            } else if (state.subStates && state.subStates.length > 0) {
+              state.subStates
+              .map((subState) => getStateArgs(subState, state.stateName))
+              .forEach((subStateArgs) => {
+                $stateProvider.state(...subStateArgs);
+              });
+            }
+
+        });
+
+        // .state('wizard.smart_citizen', {
+        //     url: '/smart_citizen?lang',
+        //     templateUrl: './wizard/collaborators.html',
+        //     controller: smartCitizenController,
         //     resolve: {
         //         scopePayload: function (SegueService, $stateParams) {
         //             return SegueService.prep(1, $stateParams.lang);
         //         }
         //     }
         // })
-        .state('wizard.smart_citizen', {
-            url: '/smart_citizen?lang',
-            template: require('./wizard/collaborators.html'),
-            controller: 'smartCitizenController',
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(1, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.smart_citizen2', {
-            url: '/smart_citizen_brief?lang',
-            template: require('./wizard/basic2.html'),
-            controller: 'smartCitizenController',
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(2, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.basic2', {
-            url: '/smart_citizen_brief2?lang',
-            template: require('./wizard/basic2.html'),
-            controller: 'smartCitizenController',
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(3, $stateParams.lang);
-                }
-            }
-        })
+        // .state('wizard.smart_citizen2', {
+        //     url: '/smart_citizen_brief?lang',
+        //     templateUrl: './wizard/basic2.html',
+        //     controller: smartCitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(2, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.basic2', {
+        //     url: '/smart_citizen_brief2?lang',
+        //     templateUrl: './wizard/basic2.html',
+        //     controller: smartCitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(3, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        //
+        //
+        // /** -- WHATS IN THE BOX -- **/
+        // .state('wizard.basic', {
+        //     url: '/whats_in_the_box?lang',
+        //     templateUrl: './wizard/basic.html',
+        //     controller: baseController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(10, $stateParams.lang);
+        //         }
+        //     }
+        // })
 
-
-        /** -- WHATS IN THE BOX -- **/
-        .state('wizard.basic', {
-            url: '/whats_in_the_box?lang',
-            template: require('./wizard/basic.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(10, $stateParams.lang);
-                }
-            }
-        })
+        $stateProvider
         .state('wizard.selectparts', {
             url: '/kit_parts?lang',
             template: require('./wizard/selectparts.html'),
-            controller: 'stateCtlr',
+            controller: stateCtlr,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(11, $stateParams.lang);
@@ -102,7 +118,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.selectparts2', {
             url: '/case?lang',
             template: require('./wizard/selectparts2.html'),
-            controller: 'stateCtlr',
+            controller: stateCtlr,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(12, $stateParams.lang);
@@ -195,7 +211,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- WIFI HANDSHAKE-- **/
         .state('wizard.accesspoint_pre', {
             url: '/accesspoint_pre?lang',
-            template: require('./wizard/basic.html'),
+            template: require('./wizard/base/basic1.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -206,7 +222,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.accesspoint_1', {
             url: '/accesspoint_1?lang',
             template: require('./wizard/prompted_entry.html'),
-            controller: 'accesspointController_base',
+            controller: accesspointController_base,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(31, $stateParams.lang);
@@ -216,7 +232,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.accesspoint_2', {
             url: '/accesspoint_2?lang',
             template: require('./wizard/prompted_entry2_image.html'),
-            controller: 'accesspointController_base',
+            controller: accesspointController_base,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(32, $stateParams.lang);
@@ -226,7 +242,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.ap_final', {
             url: '/ap_final?lang',
             template: require('./wizard/prompted_entry.html'),
-            controller: 'accesspointController',
+            controller: accesspointController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(33, $stateParams.lang);
@@ -238,7 +254,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         /** -- NAME -- **/
         .state('wizard.sensorName_prep', {
             url: '/sensorName_prep?lang',
-            template: require('./wizard/basic.html'),
+            template: require('./wizard/base/basic1.html'),
             controller: baseController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
@@ -249,7 +265,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.sensorName', {
             url: '/sensorName?lang',
             template: require('./wizard/sensorName.html'),
-            controller: 'nameCtlr',
+            controller: nameCtlr,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(41, $stateParams.lang);
@@ -262,7 +278,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.location_prep', {
             url: '/location_prep?lang',
             template: require('./wizard/location_prep.html'),
-            controller: 'locationController',
+            controller: locationController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(50, $stateParams.lang);
@@ -280,7 +296,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.location_map', {
             url: '/location_map?lang',
             template: require('./wizard/location_map.html'),
-            controller: 'locationController',
+            controller: locationController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(51, $stateParams.lang);
@@ -298,7 +314,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
          .state('wizard.location_tags', {
          url: '/location_tags?lang',
          template: require('./wizard/location_tags.html'),
-         controller: 'locationController',
+         controller: locationController,
              resolve: {
                  scopePayload: function (SegueService, $stateParams) {
                      return SegueService.prep(52, $stateParams.lang);
@@ -330,7 +346,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.wifi_enter', {
             url: '/wifi_enter?lang',
             template: require('./wizard/wifi_enter.html'),
-            controller: 'handshakeController',
+            controller: handshakeController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(21, $stateParams.lang);
@@ -340,7 +356,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.handshake', {
             url: '/handshake?lang',
             template: require('./wizard/handshake.html'),
-            controller: 'handshakeController',
+            controller: handshakeController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(22, $stateParams.lang);
@@ -350,7 +366,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.wifi_check', {
             url: '/wifi_check?lang',
             template: require('./wizard/wifi_check.html'),
-            controller: 'handshakeController',
+            controller: handshakeController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(23, $stateParams.lang);
@@ -372,7 +388,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.account1', {
             url: '/email?lang',
             template: require('./wizard/account1.html'),
-            controller: 'accountController',
+            controller: accountController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(90, $stateParams.lang);
@@ -382,7 +398,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.login', {
             url: '/login?lang',
             template: require('./wizard/login.html'),
-            controller: 'accountController',
+            controller: accountController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(91, $stateParams.lang);
@@ -392,7 +408,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.account2', {
             url: '/username?lang',
             template: require('./wizard/make_account1.html'),
-            controller: 'accountController',
+            controller: accountController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(95, $stateParams.lang);
@@ -402,7 +418,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.account3', {
             url: '/password?lang',
             template: require('./wizard/make_account2.html'),
-            controller: 'accountController',
+            controller: accountController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(96, $stateParams.lang);
@@ -412,7 +428,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.final', {
             url: '/final?lang',
             template: require('./wizard/final.html'),
-            controller: 'finalController',
+            controller: finalController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(100, $stateParams.lang);
@@ -442,3 +458,13 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 }
 
 routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];
+
+function getStateArgs({ stateName, subStates, controller, template, url, isState, payload }, parentStateName) {
+  const name = parentStateName ? `${parentStateName}.${stateName}` : stateName;
+  return [`wizard.${name}`, {
+    url,
+    template: base[template],
+    controller: base[controller],
+    resolve: { scopePayload: () => payload }
+  }];
+}

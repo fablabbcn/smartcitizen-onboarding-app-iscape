@@ -1,8 +1,4 @@
-'use strict';
-/**
- * Created by Lucian on 10/14/16.
- */
-angular.module('app').controller('accesspointController', function ($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
+export function accesspointController($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
     $scope.$parent.segueControl = 'blocked';
@@ -18,7 +14,11 @@ angular.module('app').controller('accesspointController', function ($scope, scop
     function prepSegue() {
         $rootScope.$broadcast('forceSegue', { target: 'wizard.confirm_handshake', params: {lang: $stateParams.lang}});
     }
-}).controller('accesspointController_base', function ($scope, $stateParams, scopePayload, AnimationService, $rootScope, $sce) {
+}
+
+accesspointController.$inject = ['$scope', 'scopePayload', 'AnimationService', '$rootScope', 'platform', '$state', '$interval', '$timeout', '$stateParams'];
+
+export function accesspointController_base($scope, $stateParams, scopePayload, AnimationService, $rootScope, $sce) {
     $rootScope.lang = $stateParams.lang;
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
@@ -29,4 +29,6 @@ angular.module('app').controller('accesspointController', function ($scope, scop
     } else if ($scope.$parent.payload.url == "accesspoint_2") {
         $scope.bindable = $sce.trustAsHtml($scope.$parent.payload.h3_1 + "<em class=blue>" + $scope.$parent.payload.em_1 + "</em>");
     }
-});
+}
+
+accesspointController_base.$inject = ['$scope', '$stateParams', 'scopePayload', 'AnimationService', '$rootScope', '$sce'];

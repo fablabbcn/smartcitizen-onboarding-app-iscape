@@ -1,8 +1,4 @@
-'use strict';
-/**
- * Created by Lucian on 10/14/16.
- */
-angular.module('app').controller('handshakeController', function($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
+export default function handshakeController($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -337,4 +333,6 @@ angular.module('app').controller('handshakeController', function($scope, scopePa
         $rootScope.$broadcast('forceSegue', { target: 'wizard.accesspoint_pre', params: {lang: $stateParams.lang}});
     };
 
-});
+}
+
+handshakeController.$inject = ['$scope', 'scopePayload', 'AnimationService', '$rootScope', 'platform', '$state', '$interval', '$timeout', '$stateParams'];

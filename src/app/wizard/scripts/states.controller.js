@@ -1,6 +1,4 @@
- 'use strict';
-
-angular.module('app').controller('stateCtlr', function($scope, $rootScope, scopePayload, AnimationService, $stateParams){
+export default function stateCtlr($scope, $rootScope, scopePayload, AnimationService, $stateParams){
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -155,4 +153,6 @@ angular.module('app').controller('stateCtlr', function($scope, $rootScope, scope
         $rootScope.$broadcast('modal');
     };
 
-});
+}
+
+stateCtlr.$inject =  ['$scope', '$rootScope', 'scopePayload', 'AnimationService', '$stateParams'];

@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('app').controller('nameCtlr', function($scope, scopePayload, AnimationService){
+export default function nameCtlr($scope, scopePayload, AnimationService){
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -103,4 +101,6 @@ angular.module('app').controller('nameCtlr', function($scope, scopePayload, Anim
 
     blockSegue();
 
-});
+}
+
+nameCtlr.$inject = ['$scope', 'scopePayload', 'AnimationService'];
