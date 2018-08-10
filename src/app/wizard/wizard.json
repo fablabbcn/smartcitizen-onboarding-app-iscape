@@ -1,8 +1,10 @@
 [{
-  "state": "intro",
+  "stateName": "",
   "controller": "baseController",
   "subStates": [{
-    "state": "collaborators",
+    "index": 1,
+    "part": 2,
+    "stateName": "smart_citizen",
     "template": "collaborators",
     "controller": "smartcitizenController",
     "url": "smart_citizen",
@@ -14,7 +16,11 @@
     }
   },
   {
+    "index": 2,
+    "part": 3,
     "template": "basic2",
+    "stateName": "smart_citizen2",
+    "controller": "smartcitizenController",
     "url": "smart_citizen_brief",
     "payload": {
       "image": "assets/images/sck.png",
@@ -26,7 +32,9 @@
   {
     "index": 3,
     "part": 4,
+    "controller": "smartcitizenController",
     "template": "basic2",
+    "stateName": "basic2",
     "url": "smart_citizen_brief2",
     "payload": {
       "image": "assets/images/web.png",
@@ -38,7 +46,9 @@
   {
     "index": 10,
     "part": 1,
-    "template": "basic",
+    "controller": "baseController",
+    "template": "basic1",
+    "stateName": "basic",
     "url": "whats_in_the_box",
     "payload": {
       "h1": "LET'S SET UP THE KIT",

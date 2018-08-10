@@ -93,6 +93,7 @@ export default function wizardCtrl($scope, $location, $sce, $window, $timeout, S
             $location.path('/wizard/' + SegueService.nextPage($scope.payload.index, $scope.pre_made));
             $window.scrollTo(0, 0);
             $scope.payload.progressShow = ' ';
+            console.log(SegueService.nextPage($scope.payload.index, $scope.pre_made));
         }, 500); // see animations max duration time
     }
 

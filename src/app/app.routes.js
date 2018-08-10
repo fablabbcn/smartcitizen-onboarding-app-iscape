@@ -1,7 +1,12 @@
 import wizardCtrl  from './wizard/scripts/wizard.controller';
 import landingController  from './wizard/scripts/landing.controller';
+
+
 import * as base  from './wizard/base';
 import wizardStates from './wizard/wizard.json';
+// tmp
+import baseController from './wizard/base';
+
 import stateCtlr  from './wizard/scripts/states.controller';
 import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
 import nameCtlr  from './wizard/scripts/name.controller';
@@ -57,6 +62,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
                 $stateProvider.state(...subStateArgs);
               });
             }
+            console.log($stateProvider.stateRegistry.get());
 
         });
 
@@ -459,12 +465,23 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 
 routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];
 
-function getStateArgs({ stateName, subStates, controller, template, url, isState, payload }, parentStateName) {
-  const name = parentStateName ? `${parentStateName}.${stateName}` : stateName;
+function getStateArgs({
+  stateName,
+  subStates,
+  controller,
+  template,
+  url,
+  isState,
+  payload,
+  index
+}, parentStateName) {
+  const name = parentStateName ? `${parentStateName}.${stateName || index}` : stateName || index;
+  console.log(url);
   return [`wizard.${name}`, {
-    url,
+    url: `/${url}`,
     template: base[template],
     controller: base[controller],
-    resolve: { scopePayload: () => payload }
+    // resolve: { scopePayload: () => payload }
+    resolve: { scopePayload: ['SegueService', (SegueService) => { console.log('coucou', index);return SegueService.prep(index, 'en')}] }
   }];
 }

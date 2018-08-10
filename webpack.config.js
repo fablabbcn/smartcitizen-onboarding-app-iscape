@@ -40,5 +40,8 @@ module.exports = {
       { from: 'src/assets/', to: 'assets/' }
     ])
   ],
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true
+  }
 };
