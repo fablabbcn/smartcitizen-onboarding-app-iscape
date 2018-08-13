@@ -204,12 +204,11 @@
     ]
   }, {
     "stateName": "",
-    "controller": "smartcitizenController",
+    "controller": "handshakeController",
     "subStates": [{
         "index": 21,
         "part": 1,
         "template": "wifi_enter",
-        "controller": "handshakeController",
         "stateName": "wifi_enter",
         "url": "wifi_enter",
         "payload": {
@@ -230,7 +229,6 @@
         "index": 22,
         "part": 2,
         "template": "handshake",
-        "controller": "handshakeController",
         "stateName": "handshake",
         "url": "handshake",
         "payload": {
@@ -246,7 +244,6 @@
         "index": 23,
         "part": 3,
         "template": "wifi_check",
-        "controller": "handshakeController",
         "stateName": "wifi_check",
         "url": "wifi_check",
         "payload": {
@@ -269,6 +266,7 @@
         "part": 4,
         "template": "confirm",
         "stateName": "confirm_handshake",
+        "controller": "smartcitizenController",
         "url": "confirm_handshake",
         "payload": {
           "h1": "WELL DONE",
@@ -337,11 +335,13 @@
     ]
   }, {
     "stateName": "",
-    "controller": "smartcitizenController",
+    "controller": "nameController",
     "subStates": [{
         "index": 40,
         "part": 1,
-        "template": "basic",
+        "template": "basic1",
+        "stateName": "sensorName_prep",
+        "controller": "smartcitizenController",
         "url": "sensorName_prep",
         "payload": {
           "h1": "LET'S GIVE YOUR SENSOR AN IDENTITY",
@@ -354,6 +354,7 @@
         "index": 41,
         "part": 2,
         "template": "sensorName",
+        "stateName": "sensorName",
         "url": "sensorName",
         "payload": {
           "h2": "What shall we name the sensor?",
@@ -368,12 +369,18 @@
     ]
   }, {
     "stateName": "",
-    "controller": "smartcitizenController",
+    "controller": "locationController",
     "subStates": [{
         "index": 50,
         "part": 1,
         "template": "location_prep",
+        "stateName": "location_prep",
         "url": "location_prep",
+        "resolve": {
+          "tags": {
+            "function": ["return [];"]
+          }
+        },
         "payload": {
           "h2": "Where will you install the sensor?",
           "h4": "By pressing 'allow' on the pop up we can determine the current location of the sensor. You can manually adjust this later to anywhere you want to place the sensor.",
@@ -386,7 +393,13 @@
         "index": 51,
         "part": 2,
         "template": "location_map",
+        "stateName": "location_map",
         "url": "location_map",
+        "resolve": {
+          "tags": {
+            "function": ["return [];"]
+          }
+        },
         "payload": {
           "h2": "If you want to adjust it or pin it elsewhere, you can do that here",
           "h4": "Remember wherever your device goes, it will need wi-fi. Otherwise you'll have to go get it every now and again and connect it to your computer to sync the data",
@@ -400,7 +413,14 @@
         "index": 52,
         "part": 3,
         "template": "location_tags",
+        "stateName": "location_tags",
         "url": "location_tags",
+        "resolve": {
+          "tags": {
+            "function": ["platform", "return platform.getTags();"],
+            "dependencies": ["platform"]
+          }
+        },
         "payload": {
           "h2": "Is there anything we should know about location?",
           "h4": "Selecting from the tags below can help us make sense of the data, and compare it more accurately",
@@ -411,7 +431,9 @@
       {
         "index": 53,
         "part": 4,
-        "template": "comfirm",
+        "template": "confirm",
+        "controller": "smartcitizenController",
+        "stateName": "confirm_location",
         "url": "confirm_location",
         "payload": {
           "h1": "ALMOST THERE",

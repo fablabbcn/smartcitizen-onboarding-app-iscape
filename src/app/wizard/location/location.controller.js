@@ -1,6 +1,7 @@
-export default function locationController($scope, uiGmapIsReady, $geolocation, scopePayload, AnimationService, tags) {
+export function locationController($scope, uiGmapIsReady, $geolocation, scopePayload, AnimationService, tags) {
 
     // Tags must be on this list https://api.smartcitizen.me/v0/tags
+    console.log("loc",tags, scopePayload);
 
     $scope.$parent.payload = scopePayload;
     $scope.$parent.submittedData.deviceData.user_tags_array = [];
@@ -9,7 +10,6 @@ export default function locationController($scope, uiGmapIsReady, $geolocation, 
 
     var tagsList = [];
     var tagsState = [];
-
     for(var i = 0; i < tags.length; i++) {
         var obj = tags[i];
         var name = obj.name;

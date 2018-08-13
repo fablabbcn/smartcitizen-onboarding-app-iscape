@@ -8,8 +8,6 @@ import wizardStates from './wizard/wizard.json';
 import smartcitizenController from './wizard/base';
 
 import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
-import nameCtlr  from './wizard/scripts/name.controller';
-import locationController  from './wizard/scripts/location.controller';
 import accountController  from './wizard/scripts/account.controller';
 import finalController  from './wizard/scripts/final.controller';
 
@@ -60,7 +58,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
                 $stateProvider.state(...subStateArgs);
               });
             }
-            console.log($stateProvider.stateRegistry.get());
+            // console.log($stateProvider.stateRegistry.get());
 
         });
 
@@ -255,96 +253,96 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
             }
         })
 
-
-        /** -- NAME -- **/
-        .state('wizard.sensorName_prep', {
-            url: '/sensorName_prep?lang',
-            template: require('./wizard/base/basic1.html'),
-            controller: smartcitizenController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(40, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.sensorName', {
-            url: '/sensorName?lang',
-            template: require('./wizard/sensorName.html'),
-            controller: nameCtlr,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(41, $stateParams.lang);
-                }
-            }
-        })
-
-
-        /** -- LOCATION -- **/
-        .state('wizard.location_prep', {
-            url: '/location_prep?lang',
-            template: require('./wizard/location_prep.html'),
-            controller: locationController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(50, $stateParams.lang);
-                },
-                tags: function (platform, $state) {
-                    return platform.getTags().then(function (tags) {
-                        return tags;
-                    }, function () {
-                        $state.go('unavailable');
-                        //return true;
-                    });
-                }
-            }
-        })
-        .state('wizard.location_map', {
-            url: '/location_map?lang',
-            template: require('./wizard/location_map.html'),
-            controller: locationController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(51, $stateParams.lang);
-                },
-                tags: function (platform, $state) {
-                    return platform.getTags().then(function (tags) {
-                        return tags;
-                    }, function () {
-                        $state.go('unavailable');
-                        //return true;
-                    });
-                }
-            }
-        })
-         .state('wizard.location_tags', {
-         url: '/location_tags?lang',
-         template: require('./wizard/location_tags.html'),
-         controller: locationController,
-             resolve: {
-                 scopePayload: function (SegueService, $stateParams) {
-                     return SegueService.prep(52, $stateParams.lang);
-                 },
-                 tags: function (platform, $state) {
-                     return platform.getTags().then(function (tags) {
-                         return tags;
-                     }, function () {
-                         $state.go('unavailable');
-                         //return true;
-                     });
-                 }
-             }
-         })
-        .state('wizard.confirm_location', {
-            url: '/confirm_location?lang',
-            template: require('./wizard/selectparts/confirm.html'),
-            controller: smartcitizenController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(53, $stateParams.lang);
-                }
-            }
-        })
-
+        //
+        // /** -- NAME -- **/
+        // .state('wizard.sensorName_prep', {
+        //     url: '/sensorName_prep?lang',
+        //     template: require('./wizard/base/basic1.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(40, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.sensorName', {
+        //     url: '/sensorName?lang',
+        //     template: require('./wizard/sensorName.html'),
+        //     controller: nameCtlr,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(41, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        //
+        //
+        // /** -- LOCATION -- **/
+        // .state('wizard.location_prep', {
+        //     url: '/location_prep?lang',
+        //     template: require('./wizard/location_prep.html'),
+        //     controller: locationController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(50, $stateParams.lang);
+        //         },
+        //         tags: function (platform, $state) {
+        //             return platform.getTags().then(function (tags) {
+        //                 return tags;
+        //             }, function () {
+        //                 $state.go('unavailable');
+        //                 //return true;
+        //             });
+        //         }
+        //     }
+        // })
+        // .state('wizard.location_map', {
+        //     url: '/location_map?lang',
+        //     template: require('./wizard/location_map.html'),
+        //     controller: locationController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(51, $stateParams.lang);
+        //         },
+        //         tags: function (platform, $state) {
+        //             return platform.getTags().then(function (tags) {
+        //                 return tags;
+        //             }, function () {
+        //                 $state.go('unavailable');
+        //                 //return true;
+        //             });
+        //         }
+        //     }
+        // })
+        //  .state('wizard.location_tags', {
+        //  url: '/location_tags?lang',
+        //  template: require('./wizard/location_tags.html'),
+        //  controller: locationController,
+        //      resolve: {
+        //          scopePayload: function (SegueService, $stateParams) {
+        //              return SegueService.prep(52, $stateParams.lang);
+        //          },
+        //          tags: function (platform, $state) {
+        //              return platform.getTags().then(function (tags) {
+        //                  return tags;
+        //              }, function () {
+        //                  $state.go('unavailable');
+        //                  //return true;
+        //              });
+        //          }
+        //      }
+        //  })
+        // .state('wizard.confirm_location', {
+        //     url: '/confirm_location?lang',
+        //     template: require('./wizard/selectparts/confirm.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(53, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        //
 
 
         /** -- HANDSHAKE -- **/
@@ -472,15 +470,27 @@ function getStateArgs({
   url,
   isState,
   payload,
-  index
+  index,
+  resolve
 }, parentState) {
   const name = (parentState && parentState.stateName) ? `${parentState.stateName}.${stateName || index}` : stateName || index;
-  console.log(url);
+  if (resolve) {
+    Object.keys(resolve).forEach((key) => {
+      const dependencies = resolve[key].dependencies;
+      resolve[key] = new Function(...resolve[key].function);
+      resolve[key].$inject = dependencies;
+    })
+  } else {
+    resolve = {};
+  }
+
+  resolve.scopePayload = ['SegueService', (SegueService) =>  SegueService.prep(index, 'en')];
+  console.log(resolve);
   return [`wizard.${name}`, {
     url: `/${url}`,
     template: states[template || (parentState && parentState.template)],
     controller: states[controller || (parentState && parentState.controller)],
     // resolve: { scopePayload: () => payload }
-    resolve: { scopePayload: ['SegueService', (SegueService) => { console.log('coucou', index);return SegueService.prep(index, 'en')}] }
+    resolve
   }];
 }

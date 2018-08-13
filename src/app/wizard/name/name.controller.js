@@ -1,4 +1,4 @@
-export default function nameCtlr($scope, scopePayload, AnimationService){
+export function nameController($scope, scopePayload, AnimationService){
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -103,4 +103,4 @@ export default function nameCtlr($scope, scopePayload, AnimationService){
 
 }
 
-nameCtlr.$inject = ['$scope', 'scopePayload', 'AnimationService'];
+nameController.$inject = ['$scope', 'scopePayload', 'AnimationService'];
