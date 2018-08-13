@@ -3,7 +3,6 @@ export function landingController($scope, scopePayload, AnimationService, $rootS
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
     $scope.$parent.segueControl = 'ready';
-    console.log("landing");
     var buttonTargets = [];
 
     targets(scopePayload);
