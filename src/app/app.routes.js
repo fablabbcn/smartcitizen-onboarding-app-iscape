@@ -10,7 +10,6 @@ import smartcitizenController from './wizard/base';
 import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
 import nameCtlr  from './wizard/scripts/name.controller';
 import locationController  from './wizard/scripts/location.controller';
-import handshakeController  from './wizard/scripts/handshake.controller';
 import accountController  from './wizard/scripts/account.controller';
 import finalController  from './wizard/scripts/final.controller';
 
@@ -349,46 +348,46 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 
 
         /** -- HANDSHAKE -- **/
-        .state('wizard.wifi_enter', {
-            url: '/wifi_enter?lang',
-            template: require('./wizard/wifi_enter.html'),
-            controller: handshakeController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(21, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.handshake', {
-            url: '/handshake?lang',
-            template: require('./wizard/handshake.html'),
-            controller: handshakeController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(22, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.wifi_check', {
-            url: '/wifi_check?lang',
-            template: require('./wizard/wifi_check.html'),
-            controller: handshakeController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(23, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.confirm_handshake', {
-            url: '/confirm_handshake?lang',
-            template: require('./wizard/selectparts/confirm.html'),
-            controller: smartcitizenController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(24, $stateParams.lang);
-                }
-            }
-        })
+        // .state('wizard.wifi_enter', {
+        //     url: '/wifi_enter?lang',
+        //     template: require('./wizard/wifi_enter.html'),
+        //     controller: handshakeController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(21, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.handshake', {
+        //     url: '/handshake?lang',
+        //     template: require('./wizard/handshake.html'),
+        //     controller: handshakeController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(22, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.wifi_check', {
+        //     url: '/wifi_check?lang',
+        //     template: require('./wizard/wifi_check.html'),
+        //     controller: handshakeController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(23, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.confirm_handshake', {
+        //     url: '/confirm_handshake?lang',
+        //     template: require('./wizard/selectparts/confirm.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(24, $stateParams.lang);
+        //         }
+        //     }
+        // })
 
         /** --  ACCOUNT -- **/
         .state('wizard.account1', {
@@ -475,12 +474,12 @@ function getStateArgs({
   payload,
   index
 }, parentState) {
-  const name = parentState.stateName ? `${parentState.stateName}.${stateName || index}` : stateName || index;
+  const name = (parentState && parentState.stateName) ? `${parentState.stateName}.${stateName || index}` : stateName || index;
   console.log(url);
   return [`wizard.${name}`, {
     url: `/${url}`,
-    template: states[template || parentState.template],
-    controller: states[controller || parentState.controller],
+    template: states[template || (parentState && parentState.template)],
+    controller: states[controller || (parentState && parentState.controller)],
     // resolve: { scopePayload: () => payload }
     resolve: { scopePayload: ['SegueService', (SegueService) => { console.log('coucou', index);return SegueService.prep(index, 'en')}] }
   }];

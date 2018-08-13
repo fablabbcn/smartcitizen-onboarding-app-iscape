@@ -200,19 +200,304 @@
           "image": "assets/images/sck_sealthecover.png",
           "segueButton": "CONTINUE"
         }
+      }
+    ]
+  }, {
+    "stateName": "",
+    "controller": "smartcitizenController",
+    "subStates": [{
+        "index": 21,
+        "part": 1,
+        "template": "wifi_enter",
+        "controller": "handshakeController",
+        "stateName": "wifi_enter",
+        "url": "wifi_enter",
+        "payload": {
+          "h2": "What network are we connecting it to?",
+          "h4": "We have to type it in manually...",
+          "input1": "Name of Wi-Fi",
+          "input1_error": "A name is required to connect to a network",
+          "input2": "Password",
+          "input2_error": "",
+          "segueButtonError": "CHECK THE FIELDS",
+          "segueButton": "IT'S READY",
+          "contextButton": "Try another way",
+          "contextButton2": "Ask for Help",
+          "continueButton": "CONTINUE"
+        }
       },
       {
-        "index": 20,
-        "part": 11,
+        "index": 22,
+        "part": 2,
+        "template": "handshake",
+        "controller": "handshakeController",
+        "stateName": "handshake",
+        "url": "handshake",
+        "payload": {
+          "h2": "Now let's do some magic..",
+          "h4": "Hold up your kit and press it on the screen over the box below and press 'connect'. Make sure the blue side of the kit is facing you",
+          "handshakeLabel": "Place your kit here",
+          "waitLabel": "YOU CAN REMOVE YOUR DEVICE",
+          "segueButton": "CONNECT",
+          "continueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 23,
+        "part": 3,
+        "template": "wifi_check",
+        "controller": "handshakeController",
+        "stateName": "wifi_check",
+        "url": "wifi_check",
+        "payload": {
+          "h2": "Oops, something went wrong...",
+          "h4": "It seems there is a problem. Notice that the Kit light is red, please retry the Wi-Fi name and password",
+          "input1": "Name of Wi-Fi",
+          "input1_error": "A name is required to connect to a network",
+          "input2": "Password",
+          "input2_error": "",
+          "segueButtonError": "CHECK THE FIELDS",
+          "contextButton": "Try another way",
+          "contextButton2": "Ask for Help",
+          "waitLabel": "WAIT",
+          "segueButton": "CONNECT",
+          "continueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 24,
+        "part": 4,
         "template": "confirm",
-        "stateName": "confirm_build",
-        "url": "confirm_build",
+        "stateName": "confirm_handshake",
+        "url": "confirm_handshake",
         "payload": {
           "h1": "WELL DONE",
-          "h4": "Time to connect it to the internet",
+          "h4": "You've connected the kit to the internet!",
           "segueButton": "CONTINUE"
         }
       }
     ]
+  }, {
+    "stateName": "",
+    "controller": "smartcitizenController",
+    "subStates": [{
+        "index": 30,
+        "part": 4,
+        "template": "basic",
+        "url": "accesspoint_pre",
+        "payload": {
+          "h1": "LET'S TRY WITH A PHONE OR TABLET INSTEAD",
+          "h4": "This approach is more reliable. You will need a phone or tablet.",
+          "segueButton": "GOT IT"
+        }
+      },
+      {
+        "index": 31,
+        "part": 5,
+        "template": "prompted_entry",
+        "url": "accesspoint_1",
+        "payload": {
+          "h2": "On your mobile device, go to your Wi-Fi settings and connect to the Wi-Fi called:",
+          "h3_1": "The",
+          "em_1": " number",
+          "h3_2": " of the Kit, located in the",
+          "em_2": " bottom right corner",
+          "h3_3": " of your Kit.",
+          "h4": "If you do not see it, make sure your kit is powered on with a red LED.",
+          "promptedText": "SmartCitizen[...]",
+          "segueButton": "CONNECTED"
+        }
+      },
+      {
+        "index": 32,
+        "part": 6,
+        "template": "prompted_entry",
+        "url": "accesspoint_2",
+        "payload": {
+          "h2": "You should see this window on your mobile device",
+          "h3_1": "If that did not happen, open the browser on your device and go to",
+          "em_1": " www.MySCK.me",
+          "h4": "If it does not work, make sure you are connected to the wifi",
+          "promptedText": "SCKit.me",
+          "segueButton": "CONNECTED"
+        }
+      },
+      {
+        "index": 33,
+        "part": 6,
+        "template": "prompted_entry",
+        "url": "ap_final",
+        "payload": {
+          "h2": "Select your Wi-Fi from the list, and enter the password. When asked for your onboarding code submit:",
+          "h4": "If the submitted wifi and password are correct you will be redirected shortly, follow the instructions on www.MySCK.me",
+          "promptedText": "TOKEN HERE",
+          "segueButton": "DONE"
+        }
+      }
+    ]
+  }, {
+    "stateName": "",
+    "controller": "smartcitizenController",
+    "subStates": [{
+        "index": 40,
+        "part": 1,
+        "template": "basic",
+        "url": "sensorName_prep",
+        "payload": {
+          "h1": "LET'S GIVE YOUR SENSOR AN IDENTITY",
+          "h4": "This will help us know where this data is coming from...",
+          "segueButtonError": "CHECK NAME",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 41,
+        "part": 2,
+        "template": "sensorName",
+        "url": "sensorName",
+        "payload": {
+          "h2": "What shall we name the sensor?",
+          "h4": "You can name it pretty much anything. This is how it will appear on the Smart Citizen map.",
+          "input1": "Enter the sensor name",
+          "input1_error": "The sensor needs a name",
+          "contextButton": "Choose a random name",
+          "segueButtonError": "CHECK NAME",
+          "segueButton": "DONE"
+        }
+      }
+    ]
+  }, {
+    "stateName": "",
+    "controller": "smartcitizenController",
+    "subStates": [{
+        "index": 50,
+        "part": 1,
+        "template": "location_prep",
+        "url": "location_prep",
+        "payload": {
+          "h2": "Where will you install the sensor?",
+          "h4": "By pressing 'allow' on the pop up we can determine the current location of the sensor. You can manually adjust this later to anywhere you want to place the sensor.",
+          "segueButton": "DONE",
+          "continueButton": "DONE!",
+          "waitButton": "WAIT"
+        }
+      },
+      {
+        "index": 51,
+        "part": 2,
+        "template": "location_map",
+        "url": "location_map",
+        "payload": {
+          "h2": "If you want to adjust it or pin it elsewhere, you can do that here",
+          "h4": "Remember wherever your device goes, it will need wi-fi. Otherwise you'll have to go get it every now and again and connect it to your computer to sync the data",
+          "input1": "Enter an address",
+          "input1_error": "",
+          "segueButton": "ALL SET",
+          "continueButton": "ALL SET"
+        }
+      },
+      {
+        "index": 52,
+        "part": 3,
+        "template": "location_tags",
+        "url": "location_tags",
+        "payload": {
+          "h2": "Is there anything we should know about location?",
+          "h4": "Selecting from the tags below can help us make sense of the data, and compare it more accurately",
+          "segueButton": "All SET",
+          "continueButton": "All SET"
+        }
+      },
+      {
+        "index": 53,
+        "part": 4,
+        "template": "comfirm",
+        "url": "confirm_location",
+        "payload": {
+          "h1": "ALMOST THERE",
+          "h4": "Finally, let's save all this work we've done.",
+          "segueButton": "CONTINUE"
+        }
+      }
+    ]
+  }, {
+    "subStates": [{
+        "index": 90,
+        "part": 1,
+        "template": "account1",
+        "url": "email",
+        "payload": {
+          "h2": "We can save the Kit with your email address",
+          "h4": "If you already have an account, we'll add it to that. If not, we'll quickly make a new one",
+          "segueButton": "CONTINUE",
+          "input1": "Put your email below",
+          "input1_error": "You must enter an email",
+          "segueButtonError": "CHECK EMAIL",
+          "continueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 91,
+        "part": 2,
+        "template": "login",
+        "url": "login",
+        "payload": {
+          "h2a": "Awesome, welcome back",
+          "h2b": "enter your password below to finish!",
+          "h4": "This will push all of your new Kit's data to your account",
+          "input1": "Password",
+          "input1_error": "",
+          "segueButtonError": "CHECK PASSWORD",
+          "segueButton": "CONTINUE",
+          "contextButton": "FORGOT PASSWORD"
+        }
+      },
+      {
+        "index": 95,
+        "part": 2,
+        "template": "make1",
+        "url": "username",
+        "payload": {
+          "h2": "Nice, so you're new to Smart Citizen?",
+          "h4": "Add a username to your profile, so users know who owns the sensor.",
+          "input1": "Enter a username",
+          "input1_error": "A username is required",
+          "input1_error2": "Username is too short",
+          "contextButton": "Chose random name",
+          "segueButtonError": "CHECK USERNAME",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+
+        "index": 96,
+        "part": 3,
+        "template": "make2",
+        "url": "password",
+        "payload": {
+          "h2": "Now, filly a password to secure everything",
+          "h4a": "the password has to be at least 8 characters long",
+          "h4b": "And one more time to make sure there are no mistakes",
+          "input1": "Password",
+          "input1_error": "The password must be at least 8 characters long",
+          "input1_error2": "You must enter a password",
+          "segueButtonError": "PASSWORDS MUST MATCH",
+          "segueButton": "ALL DONE!",
+          "continueButton": "ALL DONE!"
+        }
+      }
+    ]
+  }, {
+    "index": 100,
+    "part": 4,
+    "controller": "finalController",
+    "template": "final",
+    "url": "final",
+    "payload": {
+      "h1": "ITS ALIVE!",
+      "h2": "You have successfully installed and connected the Smart Citizen Kit to the internet, and then added the kit to the global community of sensors",
+      "h4": "Visit SmartCitizen.me to see your Kit in action capturing data. Don't forget to read the manual for assembly instructions and good tips on placing your sensor in the wild",
+      "segueButton": "VISIT SMARTCITIZEN.ME"
+    }
   }
 ]
