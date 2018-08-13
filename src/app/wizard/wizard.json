@@ -292,11 +292,13 @@
     ]
   }, {
     "stateName": "",
-    "controller": "smartcitizenController",
+    "controller": "accesspointController_base",
     "subStates": [{
         "index": 30,
         "part": 4,
-        "template": "basic",
+        "template": "basic1",
+        "controller": "smartcitizenController",
+        "stateName": "accesspoint_pre",
         "url": "accesspoint_pre",
         "payload": {
           "h1": "LET'S TRY WITH A PHONE OR TABLET INSTEAD",
@@ -307,7 +309,8 @@
       {
         "index": 31,
         "part": 5,
-        "template": "prompted_entry",
+        "template": "prompted_entry1",
+        "stateName": "accesspoint_1",
         "url": "accesspoint_1",
         "payload": {
           "h2": "On your mobile device, go to your Wi-Fi settings and connect to the Wi-Fi called:",
@@ -324,7 +327,8 @@
       {
         "index": 32,
         "part": 6,
-        "template": "prompted_entry",
+        "template": "prompted_entry2",
+        "stateName": "accesspoint_2",
         "url": "accesspoint_2",
         "payload": {
           "h2": "You should see this window on your mobile device",
@@ -338,7 +342,9 @@
       {
         "index": 33,
         "part": 6,
-        "template": "prompted_entry",
+        "template": "prompted_entry1",
+        "controller": "accesspointController",
+        "stateName": "ap_final",
         "url": "ap_final",
         "payload": {
           "h2": "Select your Wi-Fi from the list, and enter the password. When asked for your onboarding code submit:",

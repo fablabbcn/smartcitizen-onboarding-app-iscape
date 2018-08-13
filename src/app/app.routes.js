@@ -5,7 +5,6 @@ import wizardStates from './wizard/wizard.json';
 // tmp
 import smartcitizenController from './wizard/base';
 
-import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
 
 export default function routes($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
 
@@ -197,46 +196,46 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         $stateProvider
 
         /** -- WIFI HANDSHAKE-- **/
-        .state('wizard.accesspoint_pre', {
-            url: '/accesspoint_pre?lang',
-            template: require('./wizard/base/basic1.html'),
-            controller: smartcitizenController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(30, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.accesspoint_1', {
-            url: '/accesspoint_1?lang',
-            template: require('./wizard/prompted_entry.html'),
-            controller: accesspointController_base,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(31, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.accesspoint_2', {
-            url: '/accesspoint_2?lang',
-            template: require('./wizard/prompted_entry2_image.html'),
-            controller: accesspointController_base,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(32, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.ap_final', {
-            url: '/ap_final?lang',
-            template: require('./wizard/prompted_entry.html'),
-            controller: accesspointController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(33, $stateParams.lang);
-                }
-            }
-        })
+        // .state('wizard.accesspoint_pre', {
+        //     url: '/accesspoint_pre?lang',
+        //     template: require('./wizard/base/basic1.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(30, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.accesspoint_1', {
+        //     url: '/accesspoint_1?lang',
+        //     template: require('./wizard/prompted_entry.html'),
+        //     controller: accesspointController_base,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(31, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.accesspoint_2', {
+        //     url: '/accesspoint_2?lang',
+        //     template: require('./wizard/prompted_entry2_image.html'),
+        //     controller: accesspointController_base,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(32, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.ap_final', {
+        //     url: '/ap_final?lang',
+        //     template: require('./wizard/prompted_entry.html'),
+        //     controller: accesspointController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(33, $stateParams.lang);
+        //         }
+        //     }
+        // })
 
         //
         // /** -- NAME -- **/
