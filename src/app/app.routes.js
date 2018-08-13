@@ -1,16 +1,11 @@
-import wizardCtrl  from './wizard/scripts/wizard.controller';
-import landingController  from './wizard/scripts/landing.controller';
-
-
+import wizard from './wizard/wizard.html';
+import { wizardController } from './wizard/wizard.controller';
 import * as states  from './wizard';
 import wizardStates from './wizard/wizard.json';
 // tmp
 import smartcitizenController from './wizard/base';
 
 import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
-import accountController  from './wizard/scripts/account.controller';
-import finalController  from './wizard/scripts/final.controller';
-
 
 export default function routes($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
 
@@ -19,8 +14,8 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
     /** -- INTRO -- **/
         .state('wizard', {
             url: '/wizard',
-            template: require('./wizard/wizard.html'),
-            controller: wizardCtrl,
+            template: wizard,
+            controller: wizardController,
             resolve: {
                 session: function (platform, $state) {
                     return platform.getSession().then(function (session) {
@@ -35,18 +30,8 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
                 }
             }
         })
-        .state('wizard.landing', {
-            url: '/landing?lang',            //<< find way to remove these
-            template: require('./wizard/landing.html'),
-            controller: landingController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(0, $stateParams.lang);
-                }
-            }
-        })
 
-// JSON //
+        // JSON //
 
         wizardStates.forEach((state) => {
             if (!state.subStates || state.isState) {
@@ -386,58 +371,58 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         //         }
         //     }
         // })
-
-        /** --  ACCOUNT -- **/
-        .state('wizard.account1', {
-            url: '/email?lang',
-            template: require('./wizard/account1.html'),
-            controller: accountController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(90, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.login', {
-            url: '/login?lang',
-            template: require('./wizard/login.html'),
-            controller: accountController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(91, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.account2', {
-            url: '/username?lang',
-            template: require('./wizard/make_account1.html'),
-            controller: accountController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(95, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.account3', {
-            url: '/password?lang',
-            template: require('./wizard/make_account2.html'),
-            controller: accountController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(96, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.final', {
-            url: '/final?lang',
-            template: require('./wizard/final.html'),
-            controller: finalController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(100, $stateParams.lang);
-                }
-            }
-        })
+        //
+        // /** --  ACCOUNT -- **/
+        // .state('wizard.account1', {
+        //     url: '/email?lang',
+        //     template: require('./wizard/account1.html'),
+        //     controller: accountController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(90, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.login', {
+        //     url: '/login?lang',
+        //     template: require('./wizard/login.html'),
+        //     controller: accountController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(91, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.account2', {
+        //     url: '/username?lang',
+        //     template: require('./wizard/make_account1.html'),
+        //     controller: accountController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(95, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.account3', {
+        //     url: '/password?lang',
+        //     template: require('./wizard/make_account2.html'),
+        //     controller: accountController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(96, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.final', {
+        //     url: '/final?lang',
+        //     template: require('./wizard/final.html'),
+        //     controller: finalController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(100, $stateParams.lang);
+        //         }
+        //     }
+        // })
         .state('unavailable', {
             url: '/unavailable?lang',
             template: require('./wizard/unavailable.html'),
@@ -485,7 +470,7 @@ function getStateArgs({
   }
 
   resolve.scopePayload = ['SegueService', (SegueService) =>  SegueService.prep(index, 'en')];
-  console.log(resolve);
+  console.log(stateName, controller, template);
   return [`wizard.${name}`, {
     url: `/${url}`,
     template: states[template || (parentState && parentState.template)],

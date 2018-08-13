@@ -1,4 +1,19 @@
 [{
+    "index": 0,
+    "part": 1,
+    "template": "landing",
+    "stateName": "landing",
+    "url": "landing",
+    "controller": "landingController",
+    "payload": {
+      "url": "landing",
+      "h1": "Welcome to the iSCAPE Citizen Kit!",
+      "h4": "Let’s get you set up with a Smart Citizen Kit, and sensing in no time!",
+      "segueButton": "Continue in English",
+      "contextButton1": "",
+      "contextButton2": ""
+    }
+},{
     "stateName": "",
     "controller": "smartcitizenController",
     "subStates": [{
@@ -443,10 +458,12 @@
       }
     ]
   }, {
+    "controller": "accountController",
     "subStates": [{
         "index": 90,
         "part": 1,
         "template": "account1",
+        "stateName": "account1",
         "url": "email",
         "payload": {
           "h2": "We can save the Kit with your email address",
@@ -462,6 +479,7 @@
         "index": 91,
         "part": 2,
         "template": "login",
+        "stateName": "login",
         "url": "login",
         "payload": {
           "h2a": "Awesome, welcome back",
@@ -477,7 +495,8 @@
       {
         "index": 95,
         "part": 2,
-        "template": "make1",
+        "template": "account2",
+        "stateName": "account2",
         "url": "username",
         "payload": {
           "h2": "Nice, so you're new to Smart Citizen?",
@@ -494,7 +513,8 @@
 
         "index": 96,
         "part": 3,
-        "template": "make2",
+        "template": "account3",
+        "stateName": "account3",
         "url": "password",
         "payload": {
           "h2": "Now, filly a password to secure everything",
@@ -513,6 +533,7 @@
     "index": 100,
     "part": 4,
     "controller": "finalController",
+    "stateName": "final",
     "template": "final",
     "url": "final",
     "payload": {

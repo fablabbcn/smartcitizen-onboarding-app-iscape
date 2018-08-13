@@ -1,4 +1,4 @@
-export default function accountController($scope, scopePayload, AnimationService, platform, $timeout, $rootScope, $stateParams, session) {
+export function accountController($scope, scopePayload, AnimationService, platform, $timeout, $rootScope, $stateParams, session) {
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 

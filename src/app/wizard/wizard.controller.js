@@ -1,6 +1,4 @@
-'use strict';
-
-export default function wizardCtrl($scope, $location, $sce, $window, $timeout, SegueService, $rootScope, AnimationService, session, platform, Restangular, $state, $stateParams, hotkeys) {
+export function wizardController($scope, $location, $sce, $window, $timeout, SegueService, $rootScope, AnimationService, session, platform, Restangular, $state, $stateParams, hotkeys) {
 
     $scope.spinnerControl = 'hide';
 
@@ -273,4 +271,4 @@ export default function wizardCtrl($scope, $location, $sce, $window, $timeout, S
 
 }
 
-wizardCtrl.$inject = ['$scope', '$location', '$sce', '$window', '$timeout', 'SegueService', '$rootScope', 'AnimationService', 'session', 'platform', 'Restangular', '$state', '$stateParams', 'hotkeys'];
+wizardController.$inject = ['$scope', '$location', '$sce', '$window', '$timeout', 'SegueService', '$rootScope', 'AnimationService', 'session', 'platform', 'Restangular', '$state', '$stateParams', 'hotkeys'];
