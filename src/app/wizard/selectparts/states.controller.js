@@ -1,4 +1,5 @@
-export default function stateCtlr($scope, $rootScope, scopePayload, AnimationService, $stateParams){
+export function statesController($scope, $rootScope, scopePayload, AnimationService, $stateParams){
+  console.log(scopePayload)
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
 
@@ -38,7 +39,7 @@ export default function stateCtlr($scope, $rootScope, scopePayload, AnimationSer
 
 
     $scope.selectPart = function(val){
-        //console.log($scope.selectionButtons);
+        console.log($scope.selectionButtons);
         if ($scope.tempBlock == true){
             $scope.tempBlock = false;
             return;
@@ -155,4 +156,4 @@ export default function stateCtlr($scope, $rootScope, scopePayload, AnimationSer
 
 }
 
-stateCtlr.$inject =  ['$scope', '$rootScope', 'scopePayload', 'AnimationService', '$stateParams'];
+statesController.$inject =  ['$scope', '$rootScope', 'scopePayload', 'AnimationService', '$stateParams'];

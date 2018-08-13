@@ -1,59 +1,218 @@
 [{
-  "stateName": "",
-  "controller": "baseController",
-  "subStates": [{
-    "index": 1,
-    "part": 2,
-    "stateName": "smart_citizen",
-    "template": "collaborators",
+    "stateName": "",
     "controller": "smartcitizenController",
-    "url": "smart_citizen",
-    "payload": {
-      "companyLogo": "assets/images/scklogo.png",
-      "h2": "Smart Citizen is a movement for civic participation in a modern world",
-      "h4": "Smart Citizen creates open tools for citizens to be better informed about the world around them.",
-      "segueButton": "CONTINUE"
-    }
+    "subStates": [{
+        "index": 1,
+        "part": 2,
+        "stateName": "smart_citizen",
+        "template": "collaborators",
+        "url": "smart_citizen",
+        "payload": {
+          "companyLogo": "assets/images/scklogo.png",
+          "h2": "Smart Citizen is a movement for civic participation in a modern world",
+          "h4": "Smart Citizen creates open tools for citizens to be better informed about the world around them.",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 2,
+        "part": 3,
+        "template": "basic2",
+        "stateName": "smart_citizen2",
+        "url": "smart_citizen_brief",
+        "payload": {
+          "image": "assets/images/sck.png",
+          "h2": "The Smart Citizen Kit",
+          "h4": "This sensor is a Smart Citizen Kit for environmental sensing. It measures sound, air quality, humidity, and lots of other things",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 3,
+        "part": 4,
+        "template": "basic2",
+        "stateName": "basic2",
+        "url": "smart_citizen_brief2",
+        "payload": {
+          "image": "assets/images/web.png",
+          "h2": "smartcitizen.me",
+          "h4": "The kit sends all the measurements to the Smart Citizen website. It's open and free for all to see, question and play with...",
+          "segueButton": "LET'S DO THIS"
+        }
+      }
+    ]
   },
   {
-    "index": 2,
-    "part": 3,
-    "template": "basic2",
-    "stateName": "smart_citizen2",
+    "stateName": "",
     "controller": "smartcitizenController",
-    "url": "smart_citizen_brief",
-    "payload": {
-      "image": "assets/images/sck.png",
-      "h2": "The Smart Citizen Kit",
-      "h4": "This sensor is a Smart Citizen Kit for environmental sensing. It measures sound, air quality, humidity, and lots of other things",
-      "segueButton": "CONTINUE"
-    }
-  },
-  {
-    "index": 3,
-    "part": 4,
-    "controller": "smartcitizenController",
-    "template": "basic2",
-    "stateName": "basic2",
-    "url": "smart_citizen_brief2",
-    "payload": {
-      "image": "assets/images/web.png",
-      "h2": "smartcitizen.me",
-      "h4": "The kit sends all the measurements to the Smart Citizen website. It's open and free for all to see, question and play with...",
-      "segueButton": "LET'S DO THIS"
-    }
-  },
-  {
-    "index": 10,
-    "part": 1,
-    "controller": "baseController",
-    "template": "basic1",
-    "stateName": "basic",
-    "url": "whats_in_the_box",
-    "payload": {
-      "h1": "LET'S SET UP THE KIT",
-      "h4": "There's a few pieces we need to set up the Kit, let's check we have them all",
-      "segueButton": "I'M READY"
-    }
-  }]
-}]
+    "subStates": [{
+        "index": 10,
+        "part": 1,
+        "template": "basic1",
+        "stateName": "basic",
+        "url": "whats_in_the_box",
+        "payload": {
+          "h1": "LET'S SET UP THE KIT",
+          "h4": "There's a few pieces we need to set up the Kit, let's check we have them all",
+          "segueButton": "I'M READY"
+        }
+      },
+      {
+        "index": 11,
+        "part": 2,
+        "template": "selectparts1",
+        "stateName": "selectparts",
+        "controller": "statesController",
+        "url": "kit_parts",
+        "payload": {
+          "h2": "Click on all the things you have received",
+          "h4": "We need to know this to make the set up work smoothly",
+
+          "part1": "Sensor Board",
+          "part1_desc": "This is where all the sensors are. It connects to the bigger, hardware board, so that the sensors can transmit what they find.",
+          "part2": "Hardware Board",
+          "part2_desc": "This is where all the computation takes place. Anytime you want to connect something to the Smart Citizen, it will be on this board",
+          "part3": "Battery",
+          "part3_desc": "This powers the device. Every so often it has to be recharged, especially after long periods of continuous use.",
+          "part4": "Charging Cable",
+          "part4_desc": "When the Kit needs to be charged, you can connect this cable to your computer or plug, and back to the Kit.",
+          "modalButton": "OK, got it",
+
+          "contextButton": "where is my enclosure?",
+          "segueButton": "CONTINUE",
+          "segueButtonError": "Are you missing parts?",
+          "continueButton": "CONTINUE",
+          "yesButton": "YES",
+          "noButton": "NO"
+        }
+      },
+      {
+        "index": 12,
+        "part": 3,
+        "template": "selectparts2",
+        "stateName": "selectparts2",
+        "controller": "statesController",
+        "url": "case",
+        "payload": {
+          "h2": "Finally...",
+          "h4": "You don’t have to have the case, but it does protect your kit against the elements",
+
+          "part5": "Case",
+          "part5_desc": "The case is water resistant and allows the device to be affixed to a variety of surfaces.",
+          "part6": "Spacers",
+          "part6_desc": "Placed between the hardware board and sensor board, this keeps the boards study.",
+          "part7": "Cover",
+          "part7_desc": "Closing the case, this is used dto protect the device from rain. Make sure to place the holes over the sound sensor.",
+          "part8": "Fastener",
+          "part8_desc": "This is used to fasten the case to the cover.",
+          "modalButton": "OK, got it",
+
+          "contextButton": "Where is my mine?",
+          "segueButton": "CONTINUE",
+          "segueButtonError": "Are you missing parts?",
+          "continueButton": "CONTINUE",
+          "yesButton": "YES",
+          "noButton": "NO"
+        }
+      },
+      {
+        "index": 13,
+        "part": 4,
+        "template": "confirm",
+        "stateName": "confirm_parts",
+        "url": "confirm_parts",
+        "payload": {
+          "h1": "WELL DONE",
+          "h4": "Now let's put it all together",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 14,
+        "part": 5,
+        "template": "kitbuild1",
+        "stateName": "kitbuild1",
+        "url": "kitbuild_1",
+        "payload": {
+          "h2": "First the separators...",
+          "text": "Place a spacer in the holes on the sensor board",
+          "segueButton": "DONE"
+        }
+      },
+      {
+        "index": 15,
+        "part": 6,
+        "template": "kitbuild2",
+        "stateName": "kitbuild2",
+        "url": "kitbuild_2",
+        "payload": {
+          "h2": "Secondly, let's connect the sensors",
+          "text": "Connect the pins on the sensor board to the hardware board",
+          "segueButton": "DONE"
+        }
+      },
+      {
+        "index": 16,
+        "part": 7,
+        "template": "kitbuild3",
+        "stateName": "kitbuild3",
+        "url": "kitbuild_3",
+        "payload": {
+          "h2": "Let's give it some power",
+          "text": "Connect the battery to the hardware board",
+          "segueButton": "DONE"
+        }
+      },
+      {
+        "index": 17,
+        "part": 8,
+        "template": "kitbuild4",
+        "stateName": "kitbuild4",
+        "url": "kitbuild_4",
+        "payload": {
+          "h2": "And finally, turn on the Kit",
+          "text": "Push the button on the Kit multiple times, until the LED is red.",
+          "segueButton": "IT'S ALIVE"
+        }
+      },
+      {
+        "index": 18,
+        "part": 9,
+        "template": "casing",
+        "stateName": "case1",
+        "url": "case_1",
+        "payload": {
+          "h2": "Next, we'll place it all in the casing",
+          "text": "Make sure you place it with the battery cable towards the bottom of the casing",
+          "image": "assets/images/sck_placeall.png",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 19,
+        "part": 10,
+        "template": "casing",
+        "stateName": "case2",
+        "url": "case_2",
+        "payload": {
+          "h2": "... and to finish, seal the cover",
+          "text": "Place the transparent plastic on the front of the case and fix it in place with the two white plugs.",
+          "image": "assets/images/sck_sealthecover.png",
+          "segueButton": "CONTINUE"
+        }
+      },
+      {
+        "index": 20,
+        "part": 11,
+        "template": "confirm",
+        "stateName": "confirm_build",
+        "url": "confirm_build",
+        "payload": {
+          "h1": "WELL DONE",
+          "h4": "Time to connect it to the internet",
+          "segueButton": "CONTINUE"
+        }
+      }
+    ]
+  }
+]

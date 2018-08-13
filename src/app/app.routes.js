@@ -2,12 +2,11 @@ import wizardCtrl  from './wizard/scripts/wizard.controller';
 import landingController  from './wizard/scripts/landing.controller';
 
 
-import * as base  from './wizard/base';
+import * as states  from './wizard';
 import wizardStates from './wizard/wizard.json';
 // tmp
-import baseController from './wizard/base';
+import smartcitizenController from './wizard/base';
 
-import stateCtlr  from './wizard/scripts/states.controller';
 import { accesspointController, accesspointController_base }  from './wizard/scripts/accesspoint.controller';
 import nameCtlr  from './wizard/scripts/name.controller';
 import locationController  from './wizard/scripts/location.controller';
@@ -57,7 +56,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
               $stateProvider.state(...getStateArgs(state));
             } else if (state.subStates && state.subStates.length > 0) {
               state.subStates
-              .map((subState) => getStateArgs(subState, state.stateName))
+              .map((subState) => getStateArgs(subState, state))
               .forEach((subStateArgs) => {
                 $stateProvider.state(...subStateArgs);
               });
@@ -102,7 +101,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         // .state('wizard.basic', {
         //     url: '/whats_in_the_box?lang',
         //     templateUrl: './wizard/basic.html',
-        //     controller: baseController,
+        //     controller: smartcitizenController,
         //     resolve: {
         //         scopePayload: function (SegueService, $stateParams) {
         //             return SegueService.prep(10, $stateParams.lang);
@@ -110,115 +109,116 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         //     }
         // })
 
+        // $stateProvider
+        // .state('wizard.selectparts', {
+        //     url: '/kit_parts?lang',
+        //     template: require('./wizard/selectparts.html'),
+        //     controller: statesController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(11, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.selectparts2', {
+        //     url: '/case?lang',
+        //     template: require('./wizard/selectparts2.html'),
+        //     controller: statesController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(12, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.confirm_parts', {
+        //     url: '/confirm_parts?lang',
+        //     template: require('./wizard/confirm.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(13, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.kitbuild1', { // TODO - fix this output
+        //     url: '/kitbuild_1?lang',
+        //     template: require('./wizard/kitbuild1.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(14, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.kitbuild2', {
+        //     url: '/kitbuild_2?lang',
+        //     template: require('./wizard/kitbuild2.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(15, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.kitbuild3', {
+        //     url: '/kitbuild_3?lang',
+        //     template: require('./wizard/kitbuild3.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(16, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.kitbuild4', {
+        //     url: '/kitbuild_4?lang',
+        //     template: require('./wizard/kitbuild4.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(17, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.case1', {
+        //     url: '/case_1?lang',
+        //     template: require('./wizard/casing.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(18, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        // .state('wizard.case2', {
+        //     url: '/case_2?lang',
+        //     template: require('./wizard/casing.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(19, $stateParams.lang);
+        //         }
+        //     }
+        // })
+        //
+        // .state('wizard.confirm_build', {
+        //     url: '/confirm_build?lang',
+        //     template: require('./wizard/confirm.html'),
+        //     controller: smartcitizenController,
+        //     resolve: {
+        //         scopePayload: function (SegueService, $stateParams) {
+        //             return SegueService.prep(20, $stateParams.lang);
+        //         }
+        //     }
+        // })
+
         $stateProvider
-        .state('wizard.selectparts', {
-            url: '/kit_parts?lang',
-            template: require('./wizard/selectparts.html'),
-            controller: stateCtlr,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(11, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.selectparts2', {
-            url: '/case?lang',
-            template: require('./wizard/selectparts2.html'),
-            controller: stateCtlr,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(12, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.confirm_parts', {
-            url: '/confirm_parts?lang',
-            template: require('./wizard/confirm.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(13, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.kitbuild1', { // TODO - fix this output
-            url: '/kitbuild_1?lang',
-            template: require('./wizard/kitbuild1.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(14, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.kitbuild2', {
-            url: '/kitbuild_2?lang',
-            template: require('./wizard/kitbuild2.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(15, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.kitbuild3', {
-            url: '/kitbuild_3?lang',
-            template: require('./wizard/kitbuild3.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(16, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.kitbuild4', {
-            url: '/kitbuild_4?lang',
-            template: require('./wizard/kitbuild4.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(17, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.case1', {
-            url: '/case_1?lang',
-            template: require('./wizard/casing.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(18, $stateParams.lang);
-                }
-            }
-        })
-        .state('wizard.case2', {
-            url: '/case_2?lang',
-            template: require('./wizard/casing.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(19, $stateParams.lang);
-                }
-            }
-        })
-
-        .state('wizard.confirm_build', {
-            url: '/confirm_build?lang',
-            template: require('./wizard/confirm.html'),
-            controller: baseController,
-            resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(20, $stateParams.lang);
-                }
-            }
-        })
-
 
         /** -- WIFI HANDSHAKE-- **/
         .state('wizard.accesspoint_pre', {
             url: '/accesspoint_pre?lang',
             template: require('./wizard/base/basic1.html'),
-            controller: baseController,
+            controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(30, $stateParams.lang);
@@ -261,7 +261,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('wizard.sensorName_prep', {
             url: '/sensorName_prep?lang',
             template: require('./wizard/base/basic1.html'),
-            controller: baseController,
+            controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(40, $stateParams.lang);
@@ -337,8 +337,8 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
          })
         .state('wizard.confirm_location', {
             url: '/confirm_location?lang',
-            template: require('./wizard/confirm.html'),
-            controller: baseController,
+            template: require('./wizard/selectparts/confirm.html'),
+            controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(53, $stateParams.lang);
@@ -381,8 +381,8 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         })
         .state('wizard.confirm_handshake', {
             url: '/confirm_handshake?lang',
-            template: require('./wizard/confirm.html'),
-            controller: baseController,
+            template: require('./wizard/selectparts/confirm.html'),
+            controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(24, $stateParams.lang);
@@ -444,7 +444,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
         .state('unavailable', {
             url: '/unavailable?lang',
             template: require('./wizard/unavailable.html'),
-            controller: baseController,
+            controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
                     return SegueService.prep(0, $stateParams.lang);
@@ -474,13 +474,13 @@ function getStateArgs({
   isState,
   payload,
   index
-}, parentStateName) {
-  const name = parentStateName ? `${parentStateName}.${stateName || index}` : stateName || index;
+}, parentState) {
+  const name = parentState.stateName ? `${parentState.stateName}.${stateName || index}` : stateName || index;
   console.log(url);
   return [`wizard.${name}`, {
     url: `/${url}`,
-    template: base[template],
-    controller: base[controller],
+    template: states[template || parentState.template],
+    controller: states[controller || parentState.controller],
     // resolve: { scopePayload: () => payload }
     resolve: { scopePayload: ['SegueService', (SegueService) => { console.log('coucou', index);return SegueService.prep(index, 'en')}] }
   }];

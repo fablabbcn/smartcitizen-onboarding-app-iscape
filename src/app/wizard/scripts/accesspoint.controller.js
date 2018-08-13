@@ -23,7 +23,7 @@ export function accesspointController_base($scope, $stateParams, scopePayload, A
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
     $scope.$parent.segueControl = 'ready';
-    $scope.$parent.smartCitizenToggle = '';
+    
     if ($scope.$parent.payload.url == "accesspoint_1") {
         $scope.bindable = $sce.trustAsHtml($scope.$parent.payload.h3_1 + "<em class=blue>" + $scope.$parent.payload.em_1 + "</em>" + $scope.$parent.payload.h3_2 + "<em class=blue>" + $scope.$parent.payload.em_2 + "</em>" + $scope.$parent.payload.h3_3);
     } else if ($scope.$parent.payload.url == "accesspoint_2") {

@@ -3,7 +3,7 @@ export default function landingController($scope, scopePayload, AnimationService
     $scope.$parent.payload = scopePayload;
     AnimationService.animate(scopePayload.index);
     $scope.$parent.segueControl = 'ready';
-    $scope.$parent.smartCitizenToggle = '';
+    
     var buttonTargets = [];
 
     targets(scopePayload);

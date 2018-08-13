@@ -1,4 +1,3 @@
-export * from './base.controller';
 export * from './smartcitizen.controller';
 import basic1 from './basic1.html';
 import basic2 from './basic2.html';
