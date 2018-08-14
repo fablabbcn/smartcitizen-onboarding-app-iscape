@@ -18,10 +18,10 @@ import config from './app.config';
 import routes from './app.routes';
 
 // Factories & Services
-import SegueService from './wizard/scripts/services';
-import geolocation from './wizard/scripts/geolocation.factory';
-import AnimationService from './wizard/scripts/animation.factory';
-import { platformNotify, platform } from './wizard/scripts/platform';
+import SegueService from './wizard/services/services';
+import geolocation from './wizard/services/geolocation.factory';
+import AnimationService from './wizard/services/animation.factory';
+import { platformNotify, platform } from './wizard/services/platform';
 
 
 export const App = angular.module('app', [

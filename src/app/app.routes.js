@@ -42,8 +42,6 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
                 $stateProvider.state(...subStateArgs);
               });
             }
-            // console.log($stateProvider.stateRegistry.get());
-
         });
 
 
