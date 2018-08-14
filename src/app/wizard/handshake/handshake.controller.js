@@ -275,6 +275,7 @@ export function handshakeController($scope, scopePayload, AnimationService, $roo
         if ($scope.watchDog) $timeout.cancel($scope.watchDog);
         $scope.payload.segueButton = $scope.payload.continueButton;
         $scope.$parent.segueControl = 'ready';
+        $scope.$parent.spinnerControl = 'hide';
         $rootScope.$broadcast('forceSegue', { target: 'wizard.confirm_handshake', params: {lang: $stateParams.lang}});
     }
 

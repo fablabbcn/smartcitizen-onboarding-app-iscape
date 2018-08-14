@@ -1,4 +1,5 @@
-export default function SegueService () {
+export default function SegueService ($state) {
+    const states = $state.get();
 
     var pageContent = [
         [
@@ -1339,58 +1340,50 @@ export default function SegueService () {
         return payloadGenerate(getPageContent(val, langValue), langValue)
     };
 
-    this.nextPage = function (val, accountPresent) {
-        if (val == 3) {
-            return ('whats_in_the_box');
-        } else if (val == 19) {
-            return getPageContent(val + 2).url;
-        } else if (val == 23) {
-            return ('handshake');
-        } else if (val == 24) {
-            return ('sensorName_prep');
-        } else if (val == 41) {
-            return ('location_prep');
-        } else if (val == 53) {
-            return ('email');
-        } else if (val == 90) {
-            if (accountPresent) {
-                return ('login');
-            } else {
-                return ('username');
-            }
-        } else if (val == 91) {
-            return ('final');
-        } else if (val == 96) {
-            return ('final');
-        }
-        else {
-            return (getPageContent(val + 1).url);
+    this.nextPage = function (accountPresent) {
+        const currentState = $state.current;
+        const indexState = states.indexOf(currentState);
+        console.log(states, currentState, indexState);
+        if (0 < indexState < states.length) {
+          switch (currentState.name) {
+            case 'wizard.wifi_check':
+              $state.go('wizard.handshake');
+              break;
+            case 'wizard.confirm_handshake':
+              $state.go('wizard.sensorName_prep');
+              break;
+            case 'wizard.account1':
+              $state.go(accountPresent ? 'wizard.login' : 'wizard.account2');
+              break;
+            case 'wizard.login':
+              $state.go('wizard.final');
+              break;
+            default:
+              $state.go(states[indexState+1].name);
+          }
         }
     };
-    this.previousPage = function (val, accountPresent) {
-        if (val == 10) {
-            return ('smart_citizen_brief2')
-        } else if (val == 21) {
-            return getPageContent(val - 2).url;
-        } else if (val == 30) {
-            return ('wifi_check');
-        } else if (val == 40) {
-            return ('confirm_handshake');
-        } else if (val == 50) {
-            return ('sensorName');
-        } else if (val == 90) {
-            return ('confirm_location');
-        } else if (val == 95) {
-            return ('email');
-        } else if (val == 100) {
-            if (accountPresent) {
-                return ('login');
-            } else {
-                return ('password');
-            }
-        }
-        else {
-            return (getPageContent(val - 1).url);
+    this.previousPage = function (accountPresent) {
+        const currentState = $state.current;
+        const indexState = states.indexOf(currentState);
+        console.log(states, currentState, indexState);
+        if (0 < indexState < states.length) {
+          switch (currentState.name) {
+            case 'wizard.accesspoint_pre':
+              $state.go('wizard.wifi_check');
+              break;
+            case 'wizard.sensorName_prep':
+              $state.go('wizard.confirm_handshake');
+              break;
+            case 'wizard.account2':
+              $state.go('wizard.account1');
+              break;
+            case 'wizard.final':
+              $state.go(accountPresent ? 'wizard.login' : 'wizard.account3');
+              break;
+            default:
+              $state.go(states[indexState-1].name);
+          }
         }
     };
 
@@ -1492,3 +1485,5 @@ export default function SegueService () {
     }
 
 }
+
+SegueService.$inject = ['$state'];

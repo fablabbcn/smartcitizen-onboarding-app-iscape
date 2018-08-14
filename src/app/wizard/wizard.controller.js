@@ -88,10 +88,9 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
         $scope.payload.progressShow = 'blue';
         $timeout(function() {
             console.log('Next slide:', $scope.payload.index);
-            $location.path('/wizard/' + SegueService.nextPage($scope.payload.index, $scope.pre_made));
+            SegueService.nextPage($scope.pre_made);
             $window.scrollTo(0, 0);
             $scope.payload.progressShow = ' ';
-            console.log(SegueService.nextPage($scope.payload.index, $scope.pre_made));
         }, 500); // see animations max duration time
     }
 
@@ -122,7 +121,7 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
         $timeout(function() {
             $scope.segueControl = 'ready';
             console.log('Prev slide:', $scope.payload.index);
-            $location.path('/wizard/' + SegueService.previousPage($scope.payload.index, $scope.pre_made));
+            SegueService.previousPage($scope.pre_made);
             $window.scrollTo(0, 0);
             $scope.payload.progressShow = ' ';
         }, 500); // see animations max duration time
