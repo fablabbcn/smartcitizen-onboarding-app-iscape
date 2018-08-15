@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages-deploy",
+    "deploy": "gh-pages-deploy -- 'Deploy of Onboarding'",
     "extract": "node extract.js"
   },
   "repository": {

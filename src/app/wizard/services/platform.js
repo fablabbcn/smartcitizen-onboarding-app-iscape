@@ -108,4 +108,4 @@ export function platform($rootScope, SegueService, Restangular, platformNotify) 
 
 }
 
-platform.$$inject = ['$rootScope', 'SegueService', 'Restangular', 'platformNotify'];
+platform.$inject = ['$rootScope', 'SegueService', 'Restangular', 'platformNotify'];

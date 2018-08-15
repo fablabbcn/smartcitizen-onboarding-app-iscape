@@ -55,7 +55,6 @@ export default function SegueService ($state) {
     this.nextPage = function (accountPresent) {
         const currentState = $state.current;
         const indexState = states.indexOf(currentState);
-        console.log(states, currentState, indexState);
         if (0 < indexState < states.length) {
           switch (currentState.name) {
             case 'wizard.wifi_check':
@@ -78,7 +77,6 @@ export default function SegueService ($state) {
     this.previousPage = function (accountPresent) {
         const currentState = $state.current;
         const indexState = states.indexOf(currentState);
-        console.log(states, currentState, indexState);
         if (0 < indexState < states.length) {
           switch (currentState.name) {
             case 'wizard.accesspoint_pre':
@@ -100,13 +98,6 @@ export default function SegueService ($state) {
     };
 
     this.payloadGenerate = (content, index, part) => {
-
-        // Ensure all the buttons copy is in lowercase to later postprocess in css at your taste
-        // for (var key in content) {
-        //     if (key.indexOf('Button') !== -1) {
-        //         content[key] = content[key].toLowerCase();
-        //     }
-        // }
 
         var payload = content;
 

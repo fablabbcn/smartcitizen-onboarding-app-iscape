@@ -173,8 +173,6 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
     };
 
     $scope.yes = function() {
-        //console.log($scope.lang,"d");
-        //SegueService.modalBox();
         $scope.modalBox = 'red';
         var data = SegueService.modalBox(0,$scope.lang);
         $scope.modalContent = data;

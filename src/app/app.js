@@ -18,15 +18,12 @@ import 'angular-socket-io';
 // config
 import config from './app.config';
 import routes from './app.routes';
-import run from './app.run';
 
 // Factories & Services
 import SegueService from './wizard/services/services';
 import geolocation from './wizard/services/geolocation.factory';
 import AnimationService from './wizard/services/animation.factory';
 import { platformNotify, platform } from './wizard/services/platform';
-
-console.log(angularTranslate);
 
 export const App = angular.module('app', [
   ngMaterial,
@@ -43,7 +40,6 @@ export const App = angular.module('app', [
 ])
 .config(config)
 .config(routes)
-.config(run)
 .service('SegueService', SegueService)
 .factory('AnimationService', AnimationService)
 .factory('platformNotify', platformNotify)

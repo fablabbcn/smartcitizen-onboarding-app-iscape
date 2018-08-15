@@ -1,7 +1,6 @@
 export function locationController($scope, uiGmapIsReady, $geolocation, scopePayload, AnimationService, tags) {
 
     // Tags must be on this list https://api.smartcitizen.me/v0/tags
-    console.log("loc",tags, scopePayload);
 
     $scope.$parent.payload = scopePayload;
     $scope.$parent.submittedData.deviceData.user_tags_array = [];
@@ -55,14 +54,11 @@ export function locationController($scope, uiGmapIsReady, $geolocation, scopePay
     $scope.$parent.pos = $geolocation.position;
 
     $scope.$parent.$watch('pos.coords', function (newValue, oldValue) {
-        //console.log("newValue:", newValue, "oldValue:", oldValue);
         if ($scope.$parent && $scope.$parent.pos && oldValue) {
-            //console.log('preSAVED')
         }
         if (typeof newValue == 'undefined') {
             setMapData(loc.center, loc.center, loc.zoom);
         } else {
-            //console.log('captured');
             var val = newValue;
             var center = val;
             var zoom = 18;
@@ -93,7 +89,6 @@ export function locationController($scope, uiGmapIsReady, $geolocation, scopePay
 
     function setMapData(center, marker, zoom) {
         if (!$scope.$parent) return;
-        //console.log('THIS IS IN MAP DATA:', center, zoom);
         $scope.$parent.map = {
             center: {
                 latitude: center.latitude,
@@ -103,7 +98,6 @@ export function locationController($scope, uiGmapIsReady, $geolocation, scopePay
             marker: {
                 events: {
                     dragend: function (mapModel, eventName, marker, orignalEventArgs) {
-                        //console.log(marker.coords);
                         setMapData(marker.coords, marker.coords, $scope.$parent.map.zoom);
                     }
                 },

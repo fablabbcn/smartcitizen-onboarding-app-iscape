@@ -1397,10 +1397,13 @@ function populate(jsonLang, index) {
     const state = pageContent[index].find(({stateName}) => keyState === stateName);
     if (state) {
       Object.keys(jsonLang[keyState]).forEach((subKeys) => {
-        jsonLang[keyState][subKeys] = state[subKeys];
+          if (subKeys.indexOf('Button') !== -1) {
+            jsonLang[keyState][subKeys] = state[subKeys].toLowerCase();
+          } else {
+            jsonLang[keyState][subKeys] = state[subKeys];
+          }
       })
-    }
-    else {
+    } else {
       console.log("notfound:", keyState);
     }
   })

@@ -16,17 +16,15 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
             template: wizard,
             controller: wizardController,
             resolve: {
-                session: function (platform, $state) {
+                session: ['platform', '$state', function (platform, $state) {
                     return platform.getSession().then(function (session) {
                         platform.setSession(session);
-                        //console.log(session);
-                        // This ensure user will be always redirected temporary to avoid state issues
                         return session;
                     }, function () {
                         $state.go('unavailable');
-                        //return true;
+                        return true;
                     });
-                }
+                }]
             }
         })
 
@@ -104,3 +102,5 @@ function getStateArgs({
     resolve
   }];
 }
+
+routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];
