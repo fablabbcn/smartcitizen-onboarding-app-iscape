@@ -1,8 +1,8 @@
 <div class="animate" ng-class="animationRows[4][0]">
-    <h2>{{payload.h2a}} {{submittedData.user.username}} {{payload.h2b}}</h2>
+    <h2>{{ payload.h2a | translate}} {{submittedData.user.username}} {{ payload.h2b | translate}}</h2>
 </div>
 <div class="animate" ng-class="animationRows[4][1]">
-    <h4>{{payload.h4}}</h4>
+    <h4>{{ payload.h4 | translate}}</h4>
 </div>
 
 <form name="password_form" class="animate" ng-class="animationRows[4][2]">
@@ -17,7 +17,7 @@
             </div>
             <div flex="grow" class="md-box">
                 <md-input-container ng-model-options="{ debounce: 1000 }" class="md-block">
-                    <label>{{payload.input1}}</label>
+                    <label>{{ payload.input1 | translate}}</label>
                     <input  ng-model="pass" ng-change="loginListener()" type="{{showPasswordToggle}}" name="pass" >
                     <div ng-messages="password_form.pass.$error">
                     </div>
@@ -43,7 +43,7 @@
             <text id="question" stroke="none" fill="none" font-family="SSStandard, SS Standard" font-size="18" font-weight="normal">
                 <tspan x="17.5" y="32" fill="#FFFFFF">question</tspan>
             </text>
-        </svg> {{ payload.contextButton }}
+        </svg> {{ payload.contextButton | translate }}
     </button>
 </div>
 

@@ -1,8 +1,8 @@
 <div class="animate" ng-class="animationRows[3][0]">
-    <h2>{{payload.h2}}</h2>
+    <h2>{{ payload.h2 | translate}}</h2>
 </div>
 <div class="animate" ng-class="animationRows[3][1]">
-    <h4>{{payload.h4}}</h4>
+    <h4>{{ payload.h4 | translate}}</h4>
 </div>
 
 <div class="animate" ng-class="animationRows[3][2]">
@@ -21,7 +21,7 @@
                 </div>
                 <div flex="grow" class="md-box">
                     <md-input-container class="md-block">
-                        <label>{{payload.input1}}</label>
+                        <label>{{ payload.input1 | translate}}</label>
                         <input type="text" class="autoCompleteInput" g-places-autocomplete
                                ng-change="autoCompleteListener()"
                                ng-model="autocomplete">

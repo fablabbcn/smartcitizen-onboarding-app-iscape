@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages-deploy"
+    "deploy": "gh-pages-deploy",
+    "extract": "node extract.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
   },
   "homepage": "https://github.com/fablabbcn/smartcitizen-onboarding-app-iscape#readme",
   "devDependencies": {
+    "angular-translate-extract": "^1.0.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "gh-pages-deploy": "^0.5.0",
@@ -51,6 +54,8 @@
     "angular-route": "^1.7.2",
     "angular-simple-logger": "^0.1.7",
     "angular-socket-io": "^0.7.0",
+    "angular-translate": "^2.18.1",
+    "angular-translate-loader-static-files": "^2.18.1",
     "angular-ui-router": "^1.0.19",
     "angularjs-geolocation": "^0.1.3",
     "lodash": "^4.17.10",

@@ -8,9 +8,7 @@
     "contentKeys": [
       "h1",
       "h4",
-      "segueButton",
-      "contextButton1",
-      "contextButton2"
+      "segueButton"
     ]
 },{
     "stateName": "",
@@ -35,7 +33,7 @@
         "index": 2,
         "part": 3,
         "template": "basic2",
-        "stateName": "smart_citizen2",
+        "stateName": "smart_citizen_brief",
         "url": "smart_citizen_brief",
         "assets": {
           "image": "assets/images/sck.png"
@@ -50,7 +48,7 @@
         "index": 3,
         "part": 4,
         "template": "basic2",
-        "stateName": "basic2",
+        "stateName": "smart_citizen_brief2",
         "url": "smart_citizen_brief2",
         "assets": {
           "image": "assets/images/web.png"
@@ -70,7 +68,7 @@
         "index": 10,
         "part": 1,
         "template": "basic1",
-        "stateName": "basic",
+        "stateName": "whats_in_the_box",
         "url": "whats_in_the_box",
         "contentKeys": [
           "h1",

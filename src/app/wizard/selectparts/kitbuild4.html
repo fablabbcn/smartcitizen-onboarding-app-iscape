@@ -2,8 +2,8 @@
     <img preload-image ng-src="assets/images/4.png" class="buildImage">
 </div>
 <div class="animate" ng-class="animationRows[3][1]">
-    <h2>{{payload.h2}}</h2>
+    <h2>{{ payload.h2 | translate}}</h2>
 </div>
 <div class="buildInstructions animate" ng-class="animationRows[3][2]">
-    <p>{{payload.text}}</p>
+    <p>{{ payload.text | translate}}</p>
 </div>

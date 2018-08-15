@@ -4,7 +4,7 @@ import * as states  from './wizard';
 import wizardStates from './wizard/wizard.json';
 // tmp
 import smartcitizenController from './wizard/base';
-
+import { generateTranslationKeys } from './utils/generateTranslationKeys';
 
 export default function routes($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
 
@@ -52,11 +52,7 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
             template: require('./wizard/unavailable.html'),
             controller: smartcitizenController,
             resolve: {
-                scopePayload: function (SegueService, $stateParams) {
-                    // TODO ADD IN JSON
-                    // return SegueService.prep(0, $stateParams.lang);
-                    return {};
-                }
+                scopePayload() { return {}; }
             }
         });
 
@@ -72,14 +68,6 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 }
 
 routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];
-
-
-function generateTranslationKeys(contentKeys, stateName) {
-  return contentKeys.reduce((payload, key) => {
-    payload[key] = `${stateName}.${key}`;
-    return payload;
-  }, {});
-}
 
 function getStateArgs({
   stateName,
