@@ -40,7 +40,7 @@ export function locationController($scope, uiGmapIsReady, $geolocation, scopePay
         }
     };
 
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
 
     // uiGmapIsReady.promise(1).then(function () { // Double check issue when browser back
         //setInitialPosition();

@@ -1,7 +1,7 @@
 export function landingController($scope, scopePayload, AnimationService, $rootScope, $stateParams, $state) {
     $rootScope.lang = $stateParams.lang;
     $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
     $scope.$parent.segueControl = 'ready';
     var buttonTargets = [];
 

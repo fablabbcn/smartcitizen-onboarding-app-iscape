@@ -1329,17 +1329,6 @@ export default function SegueService ($state) {
         }
     }
 
-    this.prep = function (val, lang) {
-        var langValue = 0; //default eng
-        if (lang == "esp") {
-            langValue = 1;
-        } else if (lang == "cat") {
-            langValue = 2;
-        } else {
-        }
-        return payloadGenerate(getPageContent(val, langValue), langValue)
-    };
-
     this.nextPage = function (accountPresent) {
         const currentState = $state.current;
         const indexState = states.indexOf(currentState);
@@ -1387,7 +1376,7 @@ export default function SegueService ($state) {
         }
     };
 
-    function payloadGenerate(content, value) {
+    this.payloadGenerate = (content, index, part) => {
 
         // Ensure all the buttons copy is in lowercase to later postprocess in css at your taste
         for (var key in content) {
@@ -1396,31 +1385,23 @@ export default function SegueService ($state) {
             }
         }
 
-        if (value == undefined) {
-            value = 0;
-        }
-        var pC = pageContent[value];
-
         var payload = content;
 
-        var index = pC.findIndex(function (item, i) {
-            return item.index === payload.index;
-        });
-
-        payload.progressLeftLabel = setupProgressLeft(payload.index).toString() + " / 6";
-        payload.progressRightLabel = setupProgressRight(payload.index).toString() + " step #" + payload.part;
-        payload.progressVal = (index / pC.length) * 100;
+        // TODO: in wizardController on stateChange
+        payload.progressLeftLabel = setupProgressLeft(index).toString() + " / 6";
+        payload.progressRightLabel = setupProgressRight(index).toString() + " step #" + part;
+        ///payload.progressVal = (index / pC.length) * 100;
 
         payload.companyLogo = content.companyLogo;
         payload.image = content.image;
 
 
-        if ((content.index >= 1) && (content.index < 100)) {
+        if ((index >= 1) && (index < 100)) {
             payload.backBlock = '';
         } else {
             payload.backBlock = 'hide';
         }
-        if (content.index >= 1) {
+        if (index >= 1) {
             payload.forwardBlock = 'blocked';
         } else {
             payload.forwardBlock = 'hide';
@@ -1429,11 +1410,12 @@ export default function SegueService ($state) {
         return payload;
     }
 
-    this.templateRowCounter = function (index) {
+    this.templateRowCounter = function (template) {
 
+        // TODO --> put that info in the JSON
         var tuples;
-        switch (getPageContent(index).template) { //constants for getting rows in templates
-            case "basic":
+        switch (template) { //constants for getting rows in templates
+            case "basic1":
             case "pair1":
                 tuples = 2;
                 break;

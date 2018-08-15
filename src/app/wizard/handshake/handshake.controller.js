@@ -1,6 +1,6 @@
 export function handshakeController($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
     $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
 
     $scope.handshakeSubLabel = ''; // Not currently in use
 

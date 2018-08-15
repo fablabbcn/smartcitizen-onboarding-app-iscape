@@ -1,6 +1,6 @@
 export function accesspointController($scope, scopePayload, AnimationService, $rootScope, platform, $state, $interval, $timeout, $stateParams) {
     $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
     $scope.$parent.segueControl = 'blocked';
 
     $scope.payload.promptedText = $scope.submittedData.deviceData.device_token;
@@ -21,9 +21,9 @@ accesspointController.$inject = ['$scope', 'scopePayload', 'AnimationService', '
 export function accesspointController_base($scope, $stateParams, scopePayload, AnimationService, $rootScope, $sce) {
     $rootScope.lang = $stateParams.lang;
     $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
     $scope.$parent.segueControl = 'ready';
-    
+
     if ($scope.$parent.payload.url == "accesspoint_1") {
         $scope.bindable = $sce.trustAsHtml($scope.$parent.payload.h3_1 + "<em class=blue>" + $scope.$parent.payload.em_1 + "</em>" + $scope.$parent.payload.h3_2 + "<em class=blue>" + $scope.$parent.payload.em_2 + "</em>" + $scope.$parent.payload.h3_3);
     } else if ($scope.$parent.payload.url == "accesspoint_2") {

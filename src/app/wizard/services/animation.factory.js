@@ -14,17 +14,17 @@ export default function AnimationService($rootScope, SegueService) {
      *
      * 0,0 is always used for bottom slice
      */
-    var pageIndex;
+    var template;
     var rows;
 
-    function animate(index){
+    function animate(temp){
         if (($rootScope.animationRows) && ($rootScope.animationRows[0])){ //if already allocated reset data
             reInit();
         }
         else {
             $rootScope.continuity = true; //default path
         }
-        pageIndex = index;
+        template = temp;
         initAnimationRows();
     }
 
@@ -36,7 +36,7 @@ export default function AnimationService($rootScope, SegueService) {
             for (var j = 0; j <= i; ++j)
             {
                 var animationClass = ("ar" + i + "-" + j);
-                var landing = ( pageIndex == 0 ? 'L' : '' );
+                var landing = ( template == 'landing' ? 'L' : '' );
                 animationClass += landing;
 
                 if ($rootScope.continuity){ //moving forward
@@ -49,7 +49,7 @@ export default function AnimationService($rootScope, SegueService) {
             foo.push(bar);
         }
         $rootScope.animationRows = foo;
-        rows = SegueService.templateRowCounter(pageIndex);
+        rows = SegueService.templateRowCounter(template);
 
         $rootScope.animationRows[0][0] = ( [$rootScope.animationRows[rows][rows]] ); // sets segue block to current row count last row for cascading animations
     }

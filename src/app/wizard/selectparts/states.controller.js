@@ -1,7 +1,7 @@
 export function statesController($scope, $rootScope, scopePayload, AnimationService, $stateParams){
   console.log(scopePayload)
     $scope.$parent.payload = scopePayload;
-    AnimationService.animate(scopePayload.index);
+    AnimationService.animate(scopePayload.template);
 
     $rootScope.lang = $stateParams.lang;
 

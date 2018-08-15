@@ -53,7 +53,9 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
             controller: smartcitizenController,
             resolve: {
                 scopePayload: function (SegueService, $stateParams) {
-                    return SegueService.prep(0, $stateParams.lang);
+                    // TODO ADD IN JSON
+                    // return SegueService.prep(0, $stateParams.lang);
+                    return {};
                 }
             }
         });
@@ -71,6 +73,14 @@ export default function routes($stateProvider, $urlRouterProvider, $locationProv
 
 routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider'];
 
+
+function generateTranslationKeys(contentKeys, stateName) {
+  return contentKeys.reduce((payload, key) => {
+    payload[key] = `${stateName}.${key}`;
+    return payload;
+  }, {});
+}
+
 function getStateArgs({
   stateName,
   subStates,
@@ -78,8 +88,10 @@ function getStateArgs({
   template,
   url,
   isState,
-  payload,
+  contentKeys,
+  assets,
   index,
+  part,
   resolve
 }, parentState) {
   const name = (parentState && parentState.stateName) ? `${parentState.stateName}.${stateName || index}` : stateName || index;
@@ -93,12 +105,14 @@ function getStateArgs({
     resolve = {};
   }
 
-  resolve.scopePayload = ['SegueService', (SegueService) =>  SegueService.prep(index, 'en')];
+  const payload = generateTranslationKeys(contentKeys, name);
+  payload.template = template; // HACK for animation
+  if (assets) { Object.assign(payload, assets) }; // HACK Add assets to the payload, but should be in another resolver.
+  resolve.scopePayload = ['SegueService', (SegueService) =>  SegueService.payloadGenerate(payload, index, part, 33)];
   return [`wizard.${name}`, {
     url: `/${url}`,
     template: states[template || (parentState && parentState.template)],
     controller: states[controller || (parentState && parentState.controller)],
-    // resolve: { scopePayload: () => payload }
     resolve
   }];
 }
