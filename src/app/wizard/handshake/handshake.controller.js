@@ -240,7 +240,7 @@ export function handshakeController($scope, scopePayload, AnimationService, $roo
             $scope.loadingPercentage = 100;
             $scope.watchDog = $timeout(function() {
                 blockError();
-            }, 18000);
+            }, 10000);
         });
     });
 
