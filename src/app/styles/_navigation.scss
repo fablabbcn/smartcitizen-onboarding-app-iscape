@@ -111,9 +111,9 @@ $button-height: $segueWrapperHeight / 2.75;
       width: auto;
       padding: 5px 40px;
       border-radius: 40px;
-      color: $SCK2-blue;
-      background: $SCKwhite;
-      border-color: $SCK2-blue;
+      color: var(--black);
+      background: $msGreen;
+      border-color: $msGreen;
 
       #segueContent {
         overflow: hidden;
@@ -131,7 +131,7 @@ $button-height: $segueWrapperHeight / 2.75;
         display: inline;
         padding-right: 10px;
         path {
-          fill: $SCK2-blue;
+          fill: var(--black);
         }
       }
       #closeSVG{
@@ -142,19 +142,19 @@ $button-height: $segueWrapperHeight / 2.75;
         width: 0;
       }
       &.ready {
-        border: 2px solid $SCK2-blue;
+        border: 3px solid $msGreen;
         &:hover{
           background-color: $SCK2-lightGrey;
-          color: $SCK2-blue;
+          color: var(--black);
           #nextSVG {
             path {
-              fill: $SCK2-blue;
+              fill: var(--black);
             }
           }
         }
       }
       &.blocked {
-        border: 2px solid $SCK2-darkGrey;
+        border: 3px solid $SCK2-darkGrey;
         color: $SCK2-darkGrey;
         #nextSVG {
           path {

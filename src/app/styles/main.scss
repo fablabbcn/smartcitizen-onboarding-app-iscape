@@ -18,7 +18,11 @@ $break-sm: 960px;
 
 /** -- IMPORTS -- **/
 @import "~angular-material/angular-material.scss";
+@import "~sc-assets/styles/variables.scss";
+@import "~sc-assets/styles/typography.scss";
+@import "~sc-assets/styles/helpers.scss";
 @import "colors";
+@import "helpers";
 @import "progress";
 @import "tooltip";
 @import "form";
@@ -39,80 +43,79 @@ html, body { margin: 0; padding: 0; }
 canvas {vertical-align: top; z-index: 0}
 body {
   height:auto; overflow:auto;
-  font: 100% $font;
-  background-color: $SCKwhite !important;
+  // font: 100% $font;
+  background-color: $bg-blue !important;
   display: flex;
   min-height: 100vh;
-  border: 10px $SCK2-darkGrey solid;
-
+  //
   h1, h2, h3, h4, h6, p {
     text-align: center;
   }
-
-  h1{
-    font: 100% $font2;
-    font-weight: 900;
-    font-size: 4.5em;
-    color: $SCK2-darkGrey;
-    line-height: 70px;
-    @media screen and (max-width: 450px) {
-      font-size: 3.25em;
-      line-height: 46px;
-    }
-  }
-  h2{
-    font: 100% $font2;
-    font-weight: 800;
-    font-size: 2.875em;
-    color: $SCK2-darkGrey;
-    text-transform: uppercase;
-    @media screen and (max-width: 450px) {
-      font-size: 2em;
-    }
-  }
-  h3{
-    font-weight: 400;
-    font-size: 1.875em;
-    color: $SCK2-darkGrey;
-    @media screen and (max-width: 450px) {
-      font-size: 1.375em;
-    }
-    em{
-      font-style: normal !important;
-      &.green{
-        color: $msGreen;
-      }
-      &.orange{
-        color: $msOrange;
-      }
-      &.blue{
-        color: $SCK2-blue;
-      }
-    }
-  }
-
-  h4, p{
-    font-weight: 400;
-    font-size: 1.75em;
-    color: $SCK2-darkGrey;
-    @media screen and (max-width: 450px) {
-      font-size: 1.75em;
-    }
-  }
-  h5{
-    font: 100% $font;
-    font-weight: 400;
-    font-size: 1.65em;
-    color: $msWhite;
-    @media screen and (max-width: 450px) {
-      font-size: 1.15em;
-    }
-  }
-  h6{
-    font-weight: 400;
-    font-size: 1.75em;
-    color: $msGrey;
-  }
+  //
+  // h1{
+  //   font: 100% $font2;
+  //   font-weight: 900;
+  //   font-size: 4.5em;
+  //   color: $SCK2-darkGrey;
+  //   line-height: 70px;
+  //   @media screen and (max-width: 450px) {
+  //     font-size: 3.25em;
+  //     line-height: 46px;
+  //   }
+  // }
+  // h2{
+  //   font: 100% $font2;
+  //   font-weight: 800;
+  //   font-size: 2.875em;
+  //   color: $SCK2-darkGrey;
+  //   text-transform: uppercase;
+  //   @media screen and (max-width: 450px) {
+  //     font-size: 2em;
+  //   }
+  // }
+  // h3{
+  //   font-weight: 400;
+  //   font-size: 1.875em;
+  //   color: $SCK2-darkGrey;
+  //   @media screen and (max-width: 450px) {
+  //     font-size: 1.375em;
+  //   }
+  //   em{
+  //     font-style: normal !important;
+  //     &.green{
+  //       color: $msGreen;
+  //     }
+  //     &.orange{
+  //       color: $msOrange;
+  //     }
+  //     &.blue{
+  //       color: $SCK2-blue;
+  //     }
+  //   }
+  // }
+  //
+  // h4, p{
+  //   font-weight: 400;
+  //   font-size: 1.75em;
+  //   color: $SCK2-darkGrey;
+  //   @media screen and (max-width: 450px) {
+  //     font-size: 1.75em;
+  //   }
+  // }
+  // h5{
+  //   font: 100% $font;
+  //   font-weight: 400;
+  //   font-size: 1.65em;
+  //   color: $msWhite;
+  //   @media screen and (max-width: 450px) {
+  //     font-size: 1.15em;
+  //   }
+  // }
+  // h6{
+  //   font-weight: 400;
+  //   font-size: 1.75em;
+  //   color: $msGrey;
+  // }
   button{
     font-weight: 500;
     font-size: 1.5em;
