@@ -145,7 +145,7 @@ body {
       padding: 0 25px;
       max-width: 1150px;
       overflow: visible;
-
+      color: white;
       &.ng-enter {
         -webkit-animation:slideInRight 0.5s both ease;
         -moz-animation:slideInRight 0.5s both ease;
@@ -160,8 +160,9 @@ body {
       .selectionRow {
         .selection {
           height: 400px;
-          background: $SCK2-lightGrey;
-          border: 5px $SCK2-darkGrey solid;
+          border-radius: 10px;
+          background-color: $bg-blue;
+          border: 3px $blue solid;
 
 
           &.nested{
@@ -234,11 +235,11 @@ body {
               }
             }
             .selectionText {
-              color: $SCK2-darkGrey;
+              font-family: 'Kanit';
             }
           }
           &:hover, &:active, &.active {
-            background-color: $SCK2-darkGrey;
+            background-color: $blue;
             .selectionIcon, .selectionImage {
               position:relative;
               top: -10px;

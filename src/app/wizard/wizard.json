@@ -5,8 +5,11 @@
     "stateName": "landing",
     "url": "landing",
     "controller": "landingController",
+    "assets": {
+      "companyLogo": "assets/images/Logo_iScape_white.png"
+    },
     "contentKeys": [
-      "h1",
+      "h2",
       "h4",
       "segueButton"
     ]
@@ -17,13 +20,12 @@
         "index": 1,
         "part": 2,
         "stateName": "smart_citizen",
-        "template": "collaborators",
+        "template": "landing",
         "url": "smart_citizen",
         "assets": {
-          "companyLogo": "assets/images/scklogo.png"
+          "companyLogo": "assets/images/scklogo_white.png"
         },
         "contentKeys": [
-          "companyLogo",
           "h2",
           "h4",
           "segueButton"

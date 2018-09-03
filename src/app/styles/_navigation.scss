@@ -117,8 +117,8 @@ $button-height: $segueWrapperHeight / 2.75;
 
       #segueContent {
         overflow: hidden;
-        font: 100% 'Roboto Condensed', sans-serif;
-        font-weight: 500 !important;
+        font: 100% 'Kanit', sans-serif;
+        font-weight: 700 !important;
         font-size: 20px;
         position: relative;
         top: -12px;
@@ -154,8 +154,9 @@ $button-height: $segueWrapperHeight / 2.75;
         }
       }
       &.blocked {
-        border: 3px solid $SCK2-darkGrey;
-        color: $SCK2-darkGrey;
+        border: 3px solid  $msGreen;
+        background: none;
+        color:  $msGreen;
         #nextSVG {
           path {
             fill: $SCK2-darkGrey;
@@ -228,16 +229,13 @@ $button-height: $segueWrapperHeight / 2.75;
   .backButton {
     height: $button-height;
     width: $button-height;
-    background: none;
+    background-color: $regalBlue;
     border-radius: 40px;
-    color: $msNavy2;
-    border: 2px solid $msNavy2;
-    opacity: .12;
+    color: white;
+    border: 2px solid $regalBlue;
     svg {
       position: relative;
-    }
-    tspan {
-      fill: $SCK2-blue;
+      fill: white;
     }
     &.blocked {
       tspan {
@@ -248,7 +246,7 @@ $button-height: $segueWrapperHeight / 2.75;
       visibility: hidden;
     }
     &:hover{
-      background-color: $msNavy2;
+      background-color: rgba(0,0,0,0);
     }
   }
   .forwardButton {

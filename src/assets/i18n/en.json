@@ -1,13 +1,12 @@
 {
   "landing": {
-    "h1": "Welcome to the iSCAPE Citizen Kit!",
+    "h2": "Welcome to the iSCAPE Citizen Kit!",
     "h4": "Let’s get you set up with a Smart Citizen Kit, and sensing in no time!",
     "segueButton": "continue in english",
     "contextButton1": "",
     "contextButton2": ""
   },
   "smart_citizen": {
-    "companyLogo": "assets/images/scklogo.png",
     "h2": "Smart Citizen is a movement for civic participation in a modern world",
     "h4": "Smart Citizen creates open tools for citizens to be better informed about the world around them.",
     "segueButton": "continue"
@@ -66,7 +65,7 @@
     "noButton": "no"
   },
   "confirm_parts": {
-    "h1": "WELL DONE",
+    "h1": "WELL DONE!",
     "h4": "Now let's put it all together",
     "segueButton": "continue"
   },
@@ -136,7 +135,7 @@
     "continueButton": "continue"
   },
   "confirm_handshake": {
-    "h1": "WELL DONE",
+    "h1": "WELL DONE!",
     "h4": "You've connected the kit to the internet!",
     "segueButton": "continue"
   },

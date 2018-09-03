@@ -1,13 +1,12 @@
 {
   "landing": {
-    "h1": "Bienvenido al Piloto de Making Sense!",
+    "h2": "Bienvenido al Piloto de Making Sense!",
     "h4": "Vamos a configurar el sensor Smart Citizen, y empezar a medir en breve",
     "segueButton": "sigue en castellano",
     "contextButton1": "english",
     "contextButton2": "català"
   },
   "smart_citizen": {
-    "companyLogo": "assets/images/scklogo.png",
     "h2": "Smart Citizen es un movimiento para la participación ciudadana utilizando las últimas tecnologías.",
     "h4": "Smart Citizen crea herramientas abiertas para que los ciudadanos están mejor informado acerca del mundo a su alrededor.",
     "segueButton": "continúa"
@@ -66,7 +65,7 @@
     "noButton": "no"
   },
   "confirm_parts": {
-    "h1": "BIEN HECHO",
+    "h1": "BIEN HECHO!",
     "h4": "Ahora vamos a ponerlo todo junto",
     "segueButton": "continúa"
   },
@@ -132,7 +131,7 @@
     "continueButton": "continúa"
   },
   "confirm_handshake": {
-    "h1": "BIEN HECHO",
+    "h1": "BIEN HECHO!",
     "h4": "Ya tienes tu Kit conectado a internet!",
     "segueButton": "continúa"
   },

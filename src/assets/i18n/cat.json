@@ -1,13 +1,12 @@
 {
   "landing": {
-    "h1": "Benvingut al Pilot de Making Sense!",
+    "h2": "Benvingut al Pilot de Making Sense!",
     "h4": "Configura el teu Smart Citizen Kit i comença a medir en un tres i no res",
     "segueButton": "continua en català!",
     "contextButton1": "english",
     "contextButton2": "castellano"
   },
   "smart_citizen": {
-    "companyLogo": "assets/images/scklogo.png",
     "h2": "Smart Citizen és un moviment per la participació ciutadana utilitzant les últimes tecnologies.",
     "h4": "Smart Citizen crea eines obertes per ajudar els ciutadans a entendre millor el seu entorn.",
     "segueButton": "continua"
@@ -66,7 +65,7 @@
     "noButton": "no"
   },
   "confirm_parts": {
-    "h1": "BEN FET",
+    "h1": "BEN FET!",
     "h4": "Ara anem a muntar-ho tot junt",
     "segueButton": "continua"
   },
