@@ -63,8 +63,8 @@
     <div id="modalContent" layout="column" layout-align="center center" layout-padding layout-margin>
         <div id="modalBox" ng-class="modalBox" layout-gt-sm="row" layout-align-sm="center center">
             <div>
-                <h2>{{modalContent.title}}</h2>
-                <h5>{{modalContent.body}}</h5>
+                <h2>{{ modalContent.title | translate }}</h2>
+                <p>{{ modalContent.body | translate }}</p>
             </div>
             <div ng-if="modalContent.image" id="partImage" flex="none" flex-sm-auto>
                 <img preload-image ng-src="{{modalContent.image}}">
@@ -72,7 +72,7 @@
 
         </div>
         <div ng-if="modalContent.button" id="modalLink">
-            <button id="modalButton" ng-click="modalButtonClick()" ng-class="modalButton">{{modalContent.button}}</button>
+            <button id="modalButton" ng-click="modalButtonClick()" ng-class="modalButton">{{ modalContent.button | translate }}</button>
         </div>
     </div>
 </div>

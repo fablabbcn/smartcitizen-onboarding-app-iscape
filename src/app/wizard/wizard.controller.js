@@ -253,7 +253,8 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
         }
     };
 
-    $scope.$on('modal', function() {
+    $rootScope.$on('modal', function() {
+        console.log('modal');
         $scope.modalClass = 'showing';
     });
 

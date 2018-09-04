@@ -1,9 +1,11 @@
 .kitBuildHolder {
   height: 300px;
   .buildImage {
+    height: 300px;
     max-width: 700px;
     @media screen and (max-width: 750px) {
-      width: 80%;
+      width: 90%;
+      height: auto;
     }
   }
 }
