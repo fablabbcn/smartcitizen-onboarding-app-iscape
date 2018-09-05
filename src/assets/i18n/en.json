@@ -136,7 +136,7 @@
   },
   "confirm_handshake": {
     "h1": "WELL DONE!",
-    "h4": "You've connected the kit to the internet!",
+    "h4": "You've connected the kit!",
     "segueButton": "continue"
   },
   "accesspoint_pre": {
@@ -164,7 +164,7 @@
     "segueButton": "connected"
   },
   "ap_final": {
-    "h2": "Select your Wi-Fi from the list, and enter the password. When asked for your onboarding code submit:",
+    "h2": "When asked for your onboarding token submit the following. Then Select your Wi-Fi from the list, and enter the password. ",
     "h4": "If the submitted wifi and password are correct you will be redirected shortly, follow the instructions on www.MySCK.me",
     "promptedText": "TOKEN HERE",
     "segueButton": "done"

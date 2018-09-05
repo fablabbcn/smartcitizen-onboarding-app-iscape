@@ -29,7 +29,7 @@ $labelMargin: 50px;
       -ms-transition: color 0.75s cubic-bezier(0.86, 0, 0.07, 1);
       -o-transition: color 0.75s cubic-bezier(0.86, 0, 0.07, 1);
       transition: color 0.75s cubic-bezier(0.86, 0, 0.07, 1);
-      color: white;
+      color: $blue;
     }
     #left{
       margin-left: $labelMargin;
@@ -46,7 +46,7 @@ $labelMargin: 50px;
   &:hover, &.blue{
     #progressLabels{
       p {
-        color: $SCK2-darkGrey;
+        color: $regalBlue;
       }
     }
   }

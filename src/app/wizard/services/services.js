@@ -52,11 +52,14 @@ export default function SegueService ($state) {
         }
     }
 
-    this.nextPage = function (accountPresent) {
+    this.nextPage = function (accountPresent, stateName) {
         const currentState = $state.current;
         const indexState = states.indexOf(currentState);
         if (0 < indexState < states.length) {
           switch (currentState.name) {
+            case 'wizard.choose_connection':
+              $state.go('wizard.'+ stateName); // TODO
+              break;
             case 'wizard.wifi_check':
               $state.go('wizard.handshake');
               break;
@@ -80,7 +83,16 @@ export default function SegueService ($state) {
         if (0 < indexState < states.length) {
           switch (currentState.name) {
             case 'wizard.accesspoint_pre':
-              $state.go('wizard.wifi_check');
+              $state.go('wizard.choose_connection');
+              break;
+            case 'wizard.wifi_enter':
+              $state.go('wizard.choose_connection');
+              break;
+            case 'wizard.confirm_handshake':
+              $state.go('wizard.choose_connection');
+              break;
+            case 'wizard.offline_pre':
+              $state.go('wizard.choose_connection');
               break;
             case 'wizard.sensorName_prep':
               $state.go('wizard.confirm_handshake');
@@ -103,7 +115,7 @@ export default function SegueService ($state) {
 
         // TODO: in wizardController on stateChange
         payload.progressLeftLabel = setupProgressLeft(index).toString() + " / 6";
-        payload.progressRightLabel = setupProgressRight(index).toString() + " step #" + part;
+        payload.progressRightLabel = setupProgressRight(index).toString() + " step " + part;
         ///payload.progressVal = (index / pC.length) * 100;
 
         payload.companyLogo = content.companyLogo;
@@ -167,7 +179,7 @@ export default function SegueService ($state) {
     function setupProgressRight(index) {
         if (index <= 3) {
             return "Introduction";
-        } else if (index <= 20) {
+        } else if (index <= 19) {
             return "What's in the Box";
         } else if (index <= 33) {
             return "Handshake";
