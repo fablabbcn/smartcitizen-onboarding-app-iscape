@@ -116,7 +116,9 @@ export default function SegueService ($state) {
         // TODO: in wizardController on stateChange
         payload.progressLeftLabel = setupProgressLeft(index).toString() + " / 6";
         payload.progressRightLabel = setupProgressRight(index).toString() + " step " + part;
-        ///payload.progressVal = (index / pC.length) * 100;
+        const currentState = $state.current;
+        const indexState = states.indexOf(currentState);
+        payload.progressVal = (indexState / states.length) * 100;
 
         payload.companyLogo = content.companyLogo;
         payload.image = content.image;
@@ -181,7 +183,7 @@ export default function SegueService ($state) {
             return "Introduction";
         } else if (index <= 19) {
             return "What's in the Box";
-        } else if (index <= 33) {
+        } else if (index <= 39) {
             return "Handshake";
         } else if (index <= 41) {
             return "Naming";
