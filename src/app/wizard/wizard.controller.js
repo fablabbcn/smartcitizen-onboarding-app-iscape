@@ -33,7 +33,7 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
     console.log('Your device:', $scope.submittedData.deviceData);
 
     hotkeys.add({
-        combo: 'ctrl+j+p',
+        combo: 'alt+ctrl+j+p',
         description: 'Goes to slide 19',
         callback: function() {
           goTransition('wizard.choose_connection')
