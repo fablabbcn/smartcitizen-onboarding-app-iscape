@@ -40,6 +40,22 @@ export function wizardController($scope, $location, $sce, $window, $timeout, Seg
         }
     });
 
+    hotkeys.add({
+        combo: 'right',
+        description: 'Go next',
+        callback: function() {
+           $scope.seque();
+        }
+    });
+
+    hotkeys.add({
+        combo: 'left',
+        description: 'Go back',
+        callback: function() {
+           $scope.back();
+        }
+    });
+
     /** Base Navigation  **/
     $scope.seque = function() {
 
