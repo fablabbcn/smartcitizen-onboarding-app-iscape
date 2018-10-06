@@ -69,6 +69,7 @@ export function platform($rootScope, SegueService, Restangular, platformNotify) 
     }
 
     function listenToken(token, scope){
+        console.log('Listening for token handshake...');
         listenTokens(function(data){
           if(token == data.device_token) scope.$emit('token', data);
         })
